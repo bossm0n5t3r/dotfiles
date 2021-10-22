@@ -60,6 +60,13 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " -------------------------------------------------------------------------
 
+" rust.vim
+
+syntax enable
+filetype plugin indent on
+
+" -------------------------------------------------------------------------
+
 " Syntastic
 
 set statusline+=%#warningmsg#
