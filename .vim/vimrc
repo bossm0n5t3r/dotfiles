@@ -13,6 +13,7 @@ silent! source $VIMRUNTIME/defaults.vim
 
 silent! if plug#begin('~/.vim/plugged')
 
+Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/goyo.vim'
