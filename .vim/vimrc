@@ -14,6 +14,9 @@ silent! source $VIMRUNTIME/defaults.vim
 silent! if plug#begin('~/.vim/plugged')
 
 Plug 'dense-analysis/ale'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
+Plug 'google/vim-maktaba'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/goyo.vim'
@@ -213,8 +216,9 @@ nmap <F5> :NERDTreeToggle<CR>
 
 " vim-plug
 
-nmap <F6> :PlugClean<CR>
-nmap <F7> :PlugUpdate<CR>
+nmap <F6> :PlugInstall<CR>
+nmap <F7> :PlugClean<CR>
+nmap <F8> :PlugUpdate<CR>
 
 " -------------------------------------------------------------------------
 
@@ -224,7 +228,7 @@ nmap <F7> :PlugUpdate<CR>
 nnoremap <silent> <C-l> :lclose<CR>
 
 " -------------------------------------------------------------------------
-" <F8> | Color scheme selector
+" <F9> | Color scheme selector
 " -------------------------------------------------------------------------
 
 function! s:colors(...)
@@ -245,4 +249,12 @@ function! s:rotate_colors()
   echo name
 endfunction
 
-nnoremap <silent> <F8> :call <SID>rotate_colors()<cr>
+nnoremap <silent> <F9> :call <SID>rotate_colors()<cr>
+
+" -------------------------------------------------------------------------
+
+" codefmt
+
+nmap <F10> :FormatCode<CR>
+
+" -------------------------------------------------------------------------
