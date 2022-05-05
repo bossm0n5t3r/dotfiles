@@ -8,6 +8,8 @@
 
 ## Usage
 
+- Before reading following instructions, I usually create `~/gitFolders` which locates all git clones. **So please keep that in mind.**
+
 ### neovim
 
 ```sh
@@ -39,4 +41,12 @@ $ vim vimrc
 ```sh
 $ cd ~
 $ ln -sf ~/gitFolders/dotfiles/.tmux.conf .tmux.conf
+```
+
+### zshrc
+
+```sh
+$ cd ~
+$ mv ~/.zshrc ~/.zshrc.bak
+$ ln -sf ~/gitFolders/dotfiles/.zshrc .zshrc
 ```
