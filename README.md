@@ -46,7 +46,16 @@ $ ln -sf ~/gitFolders/dotfiles/.tmux.conf .tmux.conf
 ### zshrc
 
 ```sh
+# If you want to use custom zsh-theme, Set custom zsh-theme before
 $ cd ~
 $ mv ~/.zshrc ~/.zshrc.bak
-$ ln -sf ~/gitFolders/dotfiles/.zshrc .zshrc
+$ ln -sf ~/gitFolders/dotfiles/.zshrc ~/.zshrc
+```
+
+### zsh-theme
+
+```sh
+$ cd ~
+$ mv ~/.oh-my-zsh/themes/agnoster.zsh-theme ~/.oh-my-zsh/themes/agnoster.zsh-theme.bak
+$ ln -sf ~/gitFolders/dotfiles/agnoster.zsh-theme ~/.oh-my-zsh/themes/agnoster.zsh-theme
 ```
