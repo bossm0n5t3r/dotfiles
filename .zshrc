@@ -14,6 +14,14 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 
+oapp() {
+    open -a $1
+}
+
+qapp() {
+    osascript -e "quit app \"$1\""
+}
+
 # pyenv settings
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
