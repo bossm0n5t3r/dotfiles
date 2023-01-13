@@ -19,7 +19,7 @@ oapp() {
 }
 
 qapp() {
-    osascript -e "quit app \"$1\""
+    pkill -x $1
 }
 
 # pyenv settings
@@ -34,4 +34,14 @@ source /Users/bossm0n5t3r/gitFolders/zsh-syntax-highlighting/zsh-syntax-highligh
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+# Ruby
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
+
+# Colima
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 
