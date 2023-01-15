@@ -86,6 +86,11 @@ export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 alias lg='lazygit'
 alias lzd='lazydocker'
 
+# go
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
 # zsh-syntax-highlighting
 # It must be sourced at the end of the .zshrc file
 source /Users/bossm0n5t3r/gitFolders/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
