@@ -68,10 +68,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# zsh-syntax-highlighting
-# It must be sourced at the end of the .zshrc file
-source /Users/bossm0n5t3r/gitFolders/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
@@ -85,4 +81,12 @@ fi
 # Colima
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
+
+# lazy*
+alias lg='lazygit'
+alias lzd='lazydocker'
+
+# zsh-syntax-highlighting
+# It must be sourced at the end of the .zshrc file
+source /Users/bossm0n5t3r/gitFolders/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
