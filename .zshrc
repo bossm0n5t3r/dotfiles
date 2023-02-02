@@ -65,17 +65,19 @@ move-commit() {
 
 # pyenv settings
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+    eval "$(pyenv init -)"
 fi
 
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+if command -v jenv 1>/dev/null 2>&1; then
+    eval "$(jenv init -)"
+fi
 
 # Ruby
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
-  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
-  export PATH=`gem environment gemdir`/bin:$PATH
+    export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+    export PATH=`gem environment gemdir`/bin:$PATH
 fi
 
 # Colima
@@ -88,7 +90,12 @@ alias lzd='lazydocker'
 
 # go
 export GOPATH=$HOME/go
-export GOROOT="$(brew --prefix golang)/libexec"
+
+### Original export GOROOT
+### export GOROOT="$(brew --prefix golang)/libexec"
+
+### Optimized export GOROOT
+export GOROOT="/opt/homebrew/opt/go/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # zsh-syntax-highlighting
