@@ -25,6 +25,10 @@ qapp() {
 }
 
 move-commit() {
+  # git stash
+  echo "RUN: git stash"
+  git stash
+
   the_day_before=1
   time="23:00:00"
   if [[ $# -eq 2 ]]; then
@@ -66,6 +70,12 @@ move-commit() {
   echo
   echo "RUN: git rebase --continue"
   git rebase --continue
+
+  # git stash pop
+  echo
+  echo
+  echo "RUN: git stash pop"
+  git stash pop
 }
 
 ## fzf settings
