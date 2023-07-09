@@ -28,6 +28,10 @@ reset-launchpad() {
     defaults write com.apple.dock ResetLaunchPad -bool true && killall Dock
 }
 
+back-up-brew(){
+    brew bundle dump && mv Brewfile ~/gitFolders/dotfiles
+}
+
 move-commit() {
   # git stash
   echo "RUN: git stash"
