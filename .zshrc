@@ -100,6 +100,9 @@ if command -v jenv 1>/dev/null 2>&1; then
     eval "$(jenv init -)"
 fi
 
+# fnm
+eval "$(fnm env --use-on-cd)"
+
 # Ruby
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
     export PATH=/opt/homebrew/opt/ruby/bin:$PATH
