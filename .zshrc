@@ -127,6 +127,10 @@ export GOPATH=$HOME/go
 export GOROOT="/opt/homebrew/opt/go/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
+### zsh-syntax-highlighting
+
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 ### powerlevel10k
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
