@@ -127,7 +127,10 @@ export GOPATH=$HOME/go
 export GOROOT="/opt/homebrew/opt/go/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
-# zsh-syntax-highlighting
-# It must be sourced at the end of the .zshrc file
-source /Users/bossm0n5t3r/gitFolders/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+### powerlevel10k
+
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
