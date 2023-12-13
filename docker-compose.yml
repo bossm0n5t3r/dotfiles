@@ -5,7 +5,8 @@ services:
     image: postgres:latest
     restart: always
     environment:
-      POSTGRES_PASSWORD: root
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - '5432:5432'
   cache:
