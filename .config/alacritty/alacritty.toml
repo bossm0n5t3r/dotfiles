@@ -1,0 +1,15 @@
+import = [
+    "~/.config/alacritty/themes/themes/xterm.toml"
+]
+
+[font]
+size = 15.0
+
+[font.normal]
+family = "D2CodingLigature Nerd Font Mono"
+style = "Regular"
+
+[font.bold]
+family = "D2CodingLigature Nerd Font Mono"
+style = "Bold"
+
