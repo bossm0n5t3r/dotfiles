@@ -32,6 +32,10 @@ back-up-brew(){
     brew bundle dump && mv Brewfile ~/gitFolders/dotfiles
 }
 
+brew-upgrade-all(){
+    brew update-reset && brew update && brew upgrade --greedy && brew autoremove && brew cleanup && brew doctor
+}
+
 move-commit() {
   # git stash
   echo "RUN: git stash"
