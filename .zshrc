@@ -3,7 +3,7 @@
 export PATH=$PATH:$HOME/flutter/bin
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/bossm0n5t3r/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 plugins=(git)
 
@@ -17,23 +17,23 @@ export EDITOR='vim'
 # Functions
 
 oapp() {
-    open -a $1
+  open -a $1
 }
 
 qapp() {
-    pkill -x $1
+  pkill -x $1
 }
 
 reset-launchpad() {
-    defaults write com.apple.dock ResetLaunchPad -bool true && killall Dock
+  defaults write com.apple.dock ResetLaunchPad -bool true && killall Dock
 }
 
-back-up-brew(){
-    brew bundle dump && mv Brewfile ~/gitFolders/dotfiles
+back-up-brew() {
+  brew bundle dump && mv Brewfile ~/gitFolders/dotfiles
 }
 
-brew-upgrade-all(){
-    brew update-reset && brew update && brew upgrade --greedy && brew autoremove && brew cleanup && brew doctor
+brew-upgrade-all() {
+  brew update-reset && brew update && brew upgrade --greedy && brew autoremove && brew cleanup && brew doctor
 }
 
 move-commit() {
@@ -44,16 +44,14 @@ move-commit() {
   the_day_before=1
   time="23:00:00"
   if [[ $# -eq 2 ]]; then
-      the_day_before=$1
-      time=$2
-  elif [[ $# -eq 1 ]]
-  then
+    the_day_before=$1
+    time=$2
+  elif [[ $# -eq 1 ]]; then
     the_day_before=$1
   fi
 
   is_git_repository=$(git rev-parse --is-inside-work-tree)
-  if [[ ! $is_git_repository ]]
-  then
+  if [[ ! $is_git_repository ]]; then
     echo "This directory is not a git repository."
     exit 0
   fi
@@ -95,13 +93,13 @@ set rtp+=/opt/homebrew/opt/fzf
 
 # pyenv settings
 if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
+  eval "$(pyenv init -)"
 fi
 
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
 if command -v jenv 1>/dev/null 2>&1; then
-    eval "$(jenv init -)"
+  eval "$(jenv init -)"
 fi
 
 # fnm
@@ -109,8 +107,8 @@ eval "$(fnm env --use-on-cd)"
 
 # Ruby
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
-    export PATH=/opt/homebrew/opt/ruby/bin:$PATH
-    export PATH=`gem environment gemdir`/bin:$PATH
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=$(gem environment gemdir)/bin:$PATH
 fi
 
 # Colima
@@ -141,4 +139,3 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
