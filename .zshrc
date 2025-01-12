@@ -1,6 +1,26 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:$HOME/flutter/bin
+
+# Go
+export GOPATH=$HOME/go
+
+### Original export GOROOT
+### export GOROOT="$(brew --prefix golang)/libexec"
+
+### Optimized export GOROOT
+export GOROOT="/opt/homebrew/opt/go/libexec"
+
+# Rustup ROOT
+export RUSTUP_ROOT="/opt/homebrew/opt/rustup"
+
+# flutter, Rust, Go
+export PATH=$PATH:$HOME/flutter/bin:${RUSTUP_ROOT}/bin:${GOPATH}/bin:${GOROOT}/bin
+
+# Ruby
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=$(gem environment gemdir)/bin:$PATH
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -105,12 +125,6 @@ fi
 # fnm
 eval "$(fnm env --use-on-cd)"
 
-# Ruby
-if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
-  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
-  export PATH=$(gem environment gemdir)/bin:$PATH
-fi
-
 # Colima
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
@@ -118,16 +132,6 @@ export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 # lazy*
 alias lg='lazygit'
 alias lzd='lazydocker'
-
-# go
-export GOPATH=$HOME/go
-
-### Original export GOROOT
-### export GOROOT="$(brew --prefix golang)/libexec"
-
-### Optimized export GOROOT
-export GOROOT="/opt/homebrew/opt/go/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 ### zsh-syntax-highlighting
 
