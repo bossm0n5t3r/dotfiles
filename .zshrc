@@ -175,7 +175,7 @@ qapp() {
 }
 
 reset-launchpad() {
-  defaults write com.apple.dock ResetLaunchPad -bool true && killall Dock
+  rm -rf /private$(getconf DARWIN_USER_DIR)com.apple.dock.launchpad; killall Dock
 }
 
 back-up-brew() {
