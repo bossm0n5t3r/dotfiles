@@ -1,8 +1,10 @@
-version: "3.9"
 services:
   cache:
     container_name: redis
-    image: redis:alpine
+    image: bitnami/valkey:latest
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - VALKEY_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
     restart: always
     ports:
       - "6379:6379"
