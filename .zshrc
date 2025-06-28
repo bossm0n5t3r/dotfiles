@@ -253,6 +253,11 @@ eval "$(fnm env --use-on-cd)"
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 
+# secret keys
+if [ -f ~/.secret_keys ]; then
+  source ~/.secret_keys
+fi
+
 # lazy*
 alias lg='lazygit'
 alias lzd='lazydocker'
