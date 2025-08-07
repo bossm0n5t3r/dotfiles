@@ -7,6 +7,22 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "lsp": {
+    "kotlin-language-server": {
+      "settings": {
+        "compiler": {
+          "jvm": {
+            "target": "21"
+          }
+        }
+      }
+    }
+  },
+  "languages": {
+    "Kotlin": {
+      "language_servers": ["kotlin-lsp"]
+    }
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false
@@ -19,7 +35,7 @@
   "show_whitespaces": "boundary",
   "theme": {
     "mode": "system",
-    "light": "One Light",
+    "light": "Catppuccin Mocha",
     "dark": "Catppuccin Mocha"
   }
 }
