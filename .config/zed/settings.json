@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "disable_ai": true,
   "lsp": {
     "kotlin-language-server": {
       "settings": {
@@ -37,5 +38,6 @@
     "mode": "system",
     "light": "Catppuccin Mocha",
     "dark": "Catppuccin Mocha"
-  }
+  },
+  "icon_theme": "Catppuccin Mocha"
 }
