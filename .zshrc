@@ -164,6 +164,10 @@ plugins=(git)
 
 export EDITOR='vim'
 
+# Alias
+
+alias rtw='printf "\e[8;24;80t"'
+
 # Functions
 
 oapp() {
