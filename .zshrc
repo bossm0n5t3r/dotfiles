@@ -1,149 +1,70 @@
-# Start configuration added by Zim install {{{
-#
-# User configuration sourced by interactive shells
-#
+###############################################
+# Zim / 기본 설정 (Zim 설치 시 생성)
+###############################################
 
 # -----------------
-# Zsh configuration
-# -----------------
-
-#
 # History
-#
-
-# Remove older command from the history if a duplicate is to be added.
+# -----------------
 setopt HIST_IGNORE_ALL_DUPS
 
-#
+# -----------------
 # Input/output
-#
-
-# Set editor default keymap to emacs (`-e`) or vi (`-v`)
+# -----------------
 bindkey -e
-
-# Prompt for spelling correction of commands.
-#setopt CORRECT
-
-# Customize spelling correction prompt.
-#SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
-
-# Remove path separator from WORDCHARS.
 WORDCHARS=${WORDCHARS//[\/]}
 
 # -----------------
 # Zim configuration
 # -----------------
-
-# Use degit instead of git as the default tool to install and update modules.
-#zstyle ':zim:zmodule' use 'degit'
-
-# --------------------
-# Module configuration
-# --------------------
-
-#
-# git
-#
-
-# Set a custom prefix for the generated aliases. The default prefix is 'G'.
-#zstyle ':zim:git' aliases-prefix 'g'
-
-#
-# input
-#
-
-# Append `../` to your input for each `.` you type after an initial `..`
-#zstyle ':zim:input' double-dot-expand yes
-
-#
-# termtitle
-#
-
-# Set a custom terminal title format using prompt expansion escape sequences.
-# See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
-# If none is provided, the default '%n@%m: %~' is used.
-#zstyle ':zim:termtitle' format '%1~'
-
-#
-# zsh-autosuggestions
-#
-
-# Disable automatic widget re-binding on each precmd. This can be set when
-# zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-
-# Customize the style that the suggestions are shown with.
-# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
-
-#
-# zsh-syntax-highlighting
-#
-
-# Set what highlighters will be used.
-# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
-# Customize the main highlighter styles.
-# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
-#typeset -A ZSH_HIGHLIGHT_STYLES
-#ZSH_HIGHLIGHT_STYLES[comment]='fg=242'
-
-# ------------------
-# Initialize modules
-# ------------------
-
+# -----------------
+# Initialize Zim
+# -----------------
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-# Download zimfw plugin manager if missing.
+
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   if (( ${+commands[curl]} )); then
     curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
-        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
   else
     mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
-        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
   fi
 fi
-# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+
 if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
   source ${ZIM_HOME}/zimfw.zsh init -q
 fi
-# Initialize modules.
+
 source ${ZIM_HOME}/init.zsh
 
 # ------------------------------
-# Post-init module configuration
+# Post-init: history-substring-search
 # ------------------------------
-
-#
-# zsh-history-substring-search
-#
-
 zmodload -F zsh/terminfo +p:terminfo
-# Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
 for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
 for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
 for key ('k') bindkey -M vicmd ${key} history-substring-search-up
 for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
-# }}} End configuration added by Zim install
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+###############################################
+# PATH & LANGUAGE
+###############################################
+
+export EDITOR='vim'
 
 # Go
 export GOPATH=$HOME/go
-
-### Original export GOROOT
-### export GOROOT="$(brew --prefix golang)/libexec"
-
-### Optimized export GOROOT
 export GOROOT="/opt/homebrew/opt/go/libexec"
 
-# Rustup ROOT
+# Rust
 export RUSTUP_ROOT="/opt/homebrew/opt/rustup"
 
-# flutter, Rust, Go
+# Flutter / Go / Rust / Ruby
 export PATH=$PATH:$HOME/flutter/bin:${RUSTUP_ROOT}/bin:${GOPATH}/bin:${GOROOT}/bin
 
 # Ruby
@@ -152,35 +73,27 @@ if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH=$(gem environment gemdir)/bin:$PATH
 fi
 
-# Path to your oh-my-zsh installation.
-# export ZSH="$HOME/.oh-my-zsh"
-# ZSH_THEME="agnoster"
-plugins=(git)
 
-# source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-export EDITOR='vim'
-
-# Alias
+###############################################
+# Aliases
+###############################################
 
 alias rtw='printf "\e[8;24;80t"'
 alias k=kubectl
+alias lg='lazygit'
+alias lzd='lazydocker'
 
+
+###############################################
 # Functions
+###############################################
 
-oapp() {
-  open -a $1
-}
-
-qapp() {
-  pkill -x $1
-}
+oapp() { open -a $1; }
+qapp() { pkill -x $1; }
 
 reset-launchpad() {
-  rm -rf /private$(getconf DARWIN_USER_DIR)com.apple.dock.launchpad; killall Dock
+  rm -rf /private$(getconf DARWIN_USER_DIR)com.apple.dock.launchpad
+  killall Dock
 }
 
 back-up-brew() {
@@ -188,22 +101,16 @@ back-up-brew() {
 }
 
 brew-upgrade-all() {
-  brew update-reset && brew update && brew upgrade --greedy && brew autoremove && brew cleanup && brew doctor
+  brew update-reset && brew update && brew upgrade --greedy \
+    && brew autoremove && brew cleanup && brew doctor
 }
 
 move-commit() {
-  # git stash
   echo "RUN: git stash"
   git stash
 
-  the_day_before=1
-  time="23:00:00"
-  if [[ $# -eq 2 ]]; then
-    the_day_before=$1
-    time=$2
-  elif [[ $# -eq 1 ]]; then
-    the_day_before=$1
-  fi
+  the_day_before=${1:-1}
+  time=${2:-"23:00:00"}
 
   is_git_repository=$(git rev-parse --is-inside-work-tree)
   if [[ ! $is_git_repository ]]; then
@@ -214,39 +121,30 @@ move-commit() {
   target_date_command="date -v-${the_day_before}d"
   month_and_date=$(eval "${target_date_command} '+%b %d'")
   year=$(eval "${target_date_command} '+%Y'")
+  modified_time_string="${month_and_date} ${time} ${year} +0900"
 
-  # git rebase
   echo "RUN: git rebase"
   git rebase HEAD^ -i
 
-  # Edit git committer date
-  echo
-  echo
   echo "RUN: Edit git committer date"
-  modified_time_string="${month_and_date} ${time} ${year} +0900"
-  echo
-  echo "modified_time_string: ${modified_time_string}"
-  echo
-  modified_git_committer_date="GIT_COMMITTER_DATE=\"${modified_time_string}\" git commit --amend --no-edit --date \"${modified_time_string}\""
-  eval "$modified_git_committer_date"
+  eval "GIT_COMMITTER_DATE=\"${modified_time_string}\" git commit --amend --no-edit --date \"${modified_time_string}\""
 
-  # git rebase --continue
-  echo
-  echo
   echo "RUN: git rebase --continue"
   git rebase --continue
 
-  # git stash pop
-  echo
-  echo
   echo "RUN: git stash pop"
   git stash pop
 }
 
-## fzf settings
+
+###############################################
+# Tools (fzf, pyenv, fnm, Colima, secrets)
+###############################################
+
+# fzf
 set rtp+=/opt/homebrew/opt/fzf
 
-# pyenv settings
+# pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
@@ -254,35 +152,34 @@ fi
 # fnm
 eval "$(fnm env --use-on-cd)"
 
-# Colima
+# Colima docker
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 
-# secret keys
-if [ -f ~/.secret_keys ]; then
-  source ~/.secret_keys
-fi
+# Secret keys
+[ -f ~/.secret_keys ] && source ~/.secret_keys
 
-# lazy*
-alias lg='lazygit'
-alias lzd='lazydocker'
 
-### zsh-syntax-highlighting
+###############################################
+# Plugins: Syntax Highlighting / Powerlevel10k
+###############################################
 
+# zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-### powerlevel10k
-
+# powerlevel10k
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# k8s
+###############################################
+# Kubernetes
+###############################################
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
-# SDKMAN!
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+###############################################
+# SDKMAN (must be last)
+###############################################
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
