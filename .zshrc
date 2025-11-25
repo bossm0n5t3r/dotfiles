@@ -167,6 +167,7 @@ export EDITOR='vim'
 # Alias
 
 alias rtw='printf "\e[8;24;80t"'
+alias k=kubectl
 
 # Functions
 
@@ -277,6 +278,11 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# k8s
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+# SDKMAN!
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
