@@ -1,48 +1,25 @@
 ###############################################
-# Zim / 기본 설정 (Zim 설치 시 생성)
+# Basic Zsh Configuration
 ###############################################
 
-# -----------------
-# History
-# -----------------
+# history: keep only the most recent duplicate command
 setopt HIST_IGNORE_ALL_DUPS
 
-# -----------------
-# Input/output
-# -----------------
+# keymap: use Emacs-style key bindings
 bindkey -e
+
+# Remove / from WORDCHARS to improve path navigation behavior
 WORDCHARS=${WORDCHARS//[\/]}
 
-# -----------------
-# Zim configuration
-# -----------------
-ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
-# -----------------
-# Initialize Zim
-# -----------------
+###############################################
+# Zim Initialization (no auto-install)
+###############################################
+
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+[[ -f ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
-if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
-  if (( ${+commands[curl]} )); then
-    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
-      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-  else
-    mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
-      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-  fi
-fi
-
-if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
-  source ${ZIM_HOME}/zimfw.zsh init -q
-fi
-
-source ${ZIM_HOME}/init.zsh
-
-# ------------------------------
-# Post-init: history-substring-search
-# ------------------------------
+# history-substring-search (works only if the Zim module is installed)
 zmodload -F zsh/terminfo +p:terminfo
 for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
 for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
@@ -50,15 +27,18 @@ for key ('k') bindkey -M vicmd ${key} history-substring-search-up
 for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 
+# zsh-autosuggestions (Zim module option)
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
 
 ###############################################
-# PATH & LANGUAGE
+# PATH & Languages
 ###############################################
 
 export EDITOR='vim'
 
 # Go
-export GOPATH=$HOME/go
+export GOPATH="$HOME/go"
 export GOROOT="/opt/homebrew/opt/go/libexec"
 
 # Rust
@@ -67,7 +47,7 @@ export RUSTUP_ROOT="/opt/homebrew/opt/rustup"
 # Flutter / Go / Rust / Ruby
 export PATH=$PATH:$HOME/flutter/bin:${RUSTUP_ROOT}/bin:${GOPATH}/bin:${GOROOT}/bin
 
-# Ruby
+# Ruby (Homebrew + gem bin)
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH=/opt/homebrew/opt/ruby/bin:$PATH
   export PATH=$(gem environment gemdir)/bin:$PATH
@@ -79,107 +59,67 @@ fi
 ###############################################
 
 alias rtw='printf "\e[8;24;80t"'
-alias k=kubectl
+alias k='kubectl'
 alias lg='lazygit'
 alias lzd='lazydocker'
 
 
 ###############################################
-# Functions
+# Functions (~/.zsh/functions/*.zsh)
 ###############################################
 
-oapp() { open -a $1; }
-qapp() { pkill -x $1; }
-
-reset-launchpad() {
-  rm -rf /private$(getconf DARWIN_USER_DIR)com.apple.dock.launchpad
-  killall Dock
-}
-
-back-up-brew() {
-  brew bundle dump && mv Brewfile ~/gitFolders/dotfiles
-}
-
-brew-upgrade-all() {
-  brew update-reset && brew update && brew upgrade --greedy \
-    && brew autoremove && brew cleanup && brew doctor
-}
-
-move-commit() {
-  echo "RUN: git stash"
-  git stash
-
-  the_day_before=${1:-1}
-  time=${2:-"23:00:00"}
-
-  is_git_repository=$(git rev-parse --is-inside-work-tree)
-  if [[ ! $is_git_repository ]]; then
-    echo "This directory is not a git repository."
-    exit 0
-  fi
-
-  target_date_command="date -v-${the_day_before}d"
-  month_and_date=$(eval "${target_date_command} '+%b %d'")
-  year=$(eval "${target_date_command} '+%Y'")
-  modified_time_string="${month_and_date} ${time} ${year} +0900"
-
-  echo "RUN: git rebase"
-  git rebase HEAD^ -i
-
-  echo "RUN: Edit git committer date"
-  eval "GIT_COMMITTER_DATE=\"${modified_time_string}\" git commit --amend --no-edit --date \"${modified_time_string}\""
-
-  echo "RUN: git rebase --continue"
-  git rebase --continue
-
-  echo "RUN: git stash pop"
-  git stash pop
-}
+for f in $HOME/.zsh/functions/*.zsh; do
+  [[ -r "$f" ]] && source "$f"
+done
 
 
 ###############################################
-# Tools (fzf, pyenv, fnm, Colima, secrets)
+# Tools (pyenv, fnm, fzf, Colima, secrets)
 ###############################################
 
-# fzf
-set rtp+=/opt/homebrew/opt/fzf
-
-# pyenv
+# pyenv initialization
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# fnm
+# fnm (Node Version Manager)
 eval "$(fnm env --use-on-cd)"
 
-# Colima docker
+# fzf (Homebrew)
+if [[ -f /opt/homebrew/opt/fzf/shell/completion.zsh ]]; then
+  source /opt/homebrew/opt/fzf/shell/completion.zsh
+fi
+
+if [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
+  source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+fi
+
+# Colima / Testcontainers
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 
 # Secret keys
-[ -f ~/.secret_keys ] && source ~/.secret_keys
+[ -f "$HOME/.secret_keys" ] && source "$HOME/.secret_keys"
 
 
 ###############################################
-# Plugins: Syntax Highlighting / Powerlevel10k
+# Powerlevel10k (Prompt)
 ###############################################
 
-# zsh-syntax-highlighting
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# powerlevel10k
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+[[ -f "$HOME/.p10k.zsh" ]] && source "$HOME/.p10k.zsh"
 
 
 ###############################################
-# Kubernetes
+# Kubernetes (kubectl completion)
 ###############################################
+
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 
 ###############################################
 # SDKMAN (must be last)
 ###############################################
+
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
