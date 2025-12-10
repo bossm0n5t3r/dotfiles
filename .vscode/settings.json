@@ -25,9 +25,9 @@
   "[python]": {
     "editor.tabSize": 4
   },
-  "workbench.colorTheme": "Material Theme Ocean High Contrast",
+  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.sideBar.location": "right",
+  "workbench.sideBar.location": "left",
   "workbench.startupEditor": "none",
   "extensions.showRecommendationsOnlyOnDemand": true,
   "powermode.enabled": true,
