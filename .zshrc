@@ -1,4 +1,15 @@
 ###############################################
+# IntelliJ Environment Reader Guard
+###############################################
+# When IntelliJ spawns a shell only to read the environment,
+# skip Zim/prompt/plugins to avoid side effects (e.g. noclobber issues).
+if [[ -n "$INTELLIJ_ENVIRONMENT_READER" ]]; then
+  set +o noclobber 2>/dev/null
+  return
+fi
+
+
+###############################################
 # Basic Zsh Configuration
 ###############################################
 
@@ -13,13 +24,26 @@ WORDCHARS=${WORDCHARS//[\/]}
 
 
 ###############################################
-# Zim Initialization (no auto-install)
+# Zim Initialization (Homebrew zimfw)
 ###############################################
 
+# Directory used by zimfw
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+
+# Homebrew zimfw script path (Apple Silicon)
+ZIMFW_SCRIPT=/opt/homebrew/opt/zimfw/share/zimfw.zsh
+
+# If init.zsh is missing or older than the config file, regenerate it.
+if [[ -f "${ZIMFW_SCRIPT}" ]]; then
+  if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
+    source "${ZIMFW_SCRIPT}" init
+  fi
+fi
+
+# Initialize Zim modules
 [[ -f ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
-# history-substring-search (works only if the Zim module is installed)
+# history-substring-search (works only if the Zim module is enabled)
 zmodload -F zsh/terminfo +p:terminfo
 for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
 for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
@@ -83,7 +107,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # fnm (Node Version Manager)
-eval "$(fnm env --use-on-cd)"
+if command -v fnm 1>/dev/null 2>&1; then
+  eval "$(fnm env --use-on-cd)"
+fi
 
 # fzf (Homebrew)
 if [[ -f /opt/homebrew/opt/fzf/shell/completion.zsh ]]; then
