@@ -77,6 +77,9 @@ if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH=$(gem environment gemdir)/bin:$PATH
 fi
 
+# Android
+export ANDROID_HOME=~/Library/Android/sdk
+
 
 ###############################################
 # Aliases
