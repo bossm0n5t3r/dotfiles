@@ -34,15 +34,31 @@ git clone https://github.com/bossm0n5t3r/dotfiles.git
 cd dotfiles
 ```
 
-### 2. Install Dependencies
+### 2. Run Setup Script
 
-Install tools and applications defined in the `Brewfile`:
+Everything can be set up automatically:
+
+```sh
+./install.sh
+```
+
+You can also use the dry-run option to see what changes will be made without actually applying them:
+
+```sh
+./install.sh --dry-run
+```
+
+Alternatively, you can follow the manual steps below.
+
+### 3. Manual Installation (Optional)
+
+#### Install Dependencies
 
 ```sh
 brew bundle
 ```
 
-### 3. Apply Configurations
+#### Apply Configurations
 
 #### Zsh
 
