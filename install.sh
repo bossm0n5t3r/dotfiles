@@ -4,12 +4,12 @@ set -e
 
 # 옵션 처리
 DRY_RUN=false
-while [[ "$#" -gt 0 ]]; do
-    case $1 in
-        -d|--dry-run) DRY_RUN=true; shift ;;
-        *) echo "알 수 없는 옵션: $1"; exit 1 ;;
-    esac
-done
+DOTFILES_DIR="$HOME"
+
+# 인자가 없고 기본 디렉터리가 존재하지 않는 경우 현재 디렉터리 사용
+if [ ! -d "$DOTFILES_DIR" ] && [ "$#" -eq 0 ]; then
+    DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+fi
 
 # 색상 정의
 GREEN='\033[0;32m'
@@ -17,13 +17,33 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -d|--dry-run) DRY_RUN=true; shift ;;
+        -*) echo "알 수 없는 옵션: $1"; exit 1 ;;
+        *) DOTFILES_DIR="$(cd "$1" && pwd)"; shift ;;
+    esac
+done
+
+# 사용자 입력 요청
+echo -n "dotfiles 디렉터리 경로를 입력하세요 (기본값: $DOTFILES_DIR): "
+read INPUT_DIR
+
+if [ -n "$INPUT_DIR" ]; then
+    if [ -d "$INPUT_DIR" ]; then
+        DOTFILES_DIR="$(cd "$INPUT_DIR" && pwd)"
+    else
+        echo -e "${YELLOW}오류: 입력하신 디렉터리가 존재하지 않습니다: $INPUT_DIR${NC}"
+        exit 1
+    fi
+fi
+
 if [ "$DRY_RUN" = true ]; then
     echo -e "${YELLOW}==> [DRY RUN MODE] 실제 변경사항은 적용되지 않습니다.${NC}"
 fi
 
 echo -e "${BLUE}==> dotfiles 설정을 시작합니다...${NC}"
-
-DOTFILES_DIR="$HOME/gitFolders/dotfiles"
+echo -e "${BLUE}==> 위치: $DOTFILES_DIR${NC}"
 
 # 실행 함수 래퍼
 run_cmd() {
