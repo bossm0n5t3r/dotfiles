@@ -21,7 +21,7 @@ It is optimized for macOS and uses Homebrew for package management.
 - **OS:** macOS (Apple Silicon preferred, based on paths in `.zshrc`)
 - **Package Manager:** [Homebrew](https://brew.sh/)
 - **Default Shell:** Zsh
-- **Directory Structure:** Most configurations assume this repo is cloned into `~/gitFolders/dotfiles`.
+- **Directory Structure:** Most configurations assume this repo is cloned into `~/dotfiles`.
 
 ## ⚙️ Setup & Installation
 
@@ -36,16 +36,22 @@ cd dotfiles
 
 ### 2. Run Setup Script
 
-Everything can be set up automatically:
+Everything can be set up automatically. By default, it uses `~/` (if it exists) or the directory where the script is located. 실행 시 dotfiles 디렉터리 경로를 입력받으며, 아무것도 입력하지 않으면 기본 설정된 값을 사용합니다. 또한 인자로 경로를 직접 지정할 수도 있습니다:
 
 ```sh
+# 기본 디렉터리 사용 (~/ 또는 현재 디렉터리)
 ./install.sh
+
+# 특정 디렉터리를 인자로 지정
+./install.sh ~/gitFolders/dotfiles
 ```
 
 You can also use the dry-run option to see what changes will be made without actually applying them:
 
 ```sh
 ./install.sh --dry-run
+# or with a directory
+./install.sh ~/gitFolders/dotfiles --dry-run
 ```
 
 Alternatively, you can follow the manual steps below.
