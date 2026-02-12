@@ -114,21 +114,25 @@ create_symlink "$DOTFILES_DIR/helix/languages.toml" "$HOME/.config/helix/languag
 echo -e "${BLUE}==> 플러그인 매니저를 설치하고 플러그인을 설정합니다...${NC}"
 
 # vim-plug for Vim
-if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
-    echo -e "    Vim을 위한 vim-plug 설치 중..."
-    run_cmd curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if command -v vim &>/dev/null; then
+    if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
+        echo -e "    Vim을 위한 vim-plug 설치 중..."
+        run_cmd curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    fi
+    run_cmd vim +PlugInstall +qall
 fi
-run_cmd vim +PlugInstall +qall
 
 # vim-plug for Neovim
-XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-if [ ! -f "$XDG_DATA_HOME/nvim/site/autoload/plug.vim" ]; then
-    echo -e "    Neovim을 위한 vim-plug 설치 중..."
-    run_cmd curl -fLo "$XDG_DATA_HOME/nvim/site/autoload/plug.vim" --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if command -v nvim &>/dev/null; then
+    XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+    if [ ! -f "$XDG_DATA_HOME/nvim/site/autoload/plug.vim" ]; then
+        echo -e "    Neovim을 위한 vim-plug 설치 중..."
+        run_cmd curl -fLo "$XDG_DATA_HOME/nvim/site/autoload/plug.vim" --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    fi
+    run_cmd nvim +PlugInstall +qall
 fi
-run_cmd nvim +PlugInstall +qall
 
 # TPM (Tmux Plugin Manager)
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
