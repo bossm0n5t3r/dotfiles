@@ -27,7 +27,7 @@ done
 
 # 사용자 입력 요청
 echo -n "dotfiles 디렉터리 경로를 입력하세요 (기본값: $DOTFILES_DIR): "
-read INPUT_DIR
+read -r INPUT_DIR
 
 if [ -n "$INPUT_DIR" ]; then
     if [ -d "$INPUT_DIR" ]; then
