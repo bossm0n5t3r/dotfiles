@@ -64,8 +64,22 @@ if ! command -v brew &>/dev/null; then
     fi
 fi
 
-echo -e "${BLUE}==> Brewfile에 정의된 의존성을 설치합니다...${NC}"
-run_cmd brew bundle --file="$DOTFILES_DIR/Brewfile"
+if command -v brew &>/dev/null; then
+    if [ -f "$DOTFILES_DIR/Brewfile" ]; then
+        echo -n "Homebrew bundle을 실행하시겠습니까? (y/N): "
+        read -r RUN_BREW_BUNDLE
+        if [[ "$RUN_BREW_BUNDLE" =~ ^[Yy]$ ]]; then
+            echo -e "${BLUE}==> Brewfile에 정의된 의존성을 설치합니다...${NC}"
+            run_cmd brew bundle --file="$DOTFILES_DIR/Brewfile"
+        else
+            echo -e "    ${YELLOW}Homebrew bundle 실행을 건너뜁니다.${NC}"
+        fi
+    else
+        echo -e "    ${YELLOW}Brewfile이 존재하지 않아 Homebrew bundle을 건너뜁니다.${NC}"
+    fi
+else
+    echo -e "    ${YELLOW}brew 명령어를 찾을 수 없어 Homebrew bundle을 건너뜁니다.${NC}"
+fi
 
 # 2. 심볼릭 링크 생성 함수
 create_symlink() {
