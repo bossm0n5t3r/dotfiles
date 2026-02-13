@@ -28,22 +28,23 @@ It is optimized for macOS and uses Homebrew for package management.
 ### 1. Clone the Repository
 
 ```sh
-mkdir -p ~/gitFolders
-cd ~/gitFolders
+mkdir -p ~/code
+cd ~/code
 git clone https://github.com/bossm0n5t3r/dotfiles.git
 cd dotfiles
 ```
 
 ### 2. Run Setup Script
 
-Everything can be set up automatically. By default, it uses `~/` (if it exists) or the directory where the script is located. 실행 시 dotfiles 디렉터리 경로를 입력받으며, 아무것도 입력하지 않으면 기본 설정된 값을 사용합니다. 또한 인자로 경로를 직접 지정할 수도 있습니다:
+Everything can be set up automatically. By default, it uses `~/` (if it exists) or the directory where the script is
+located. 실행 시 dotfiles 디렉터리 경로를 입력받으며, 아무것도 입력하지 않으면 기본 설정된 값을 사용합니다. 또한 인자로 경로를 직접 지정할 수도 있습니다:
 
 ```sh
 # 기본 디렉터리 사용 (~/ 또는 현재 디렉터리)
 ./install.sh
 
 # 특정 디렉터리를 인자로 지정
-./install.sh ~/gitFolders/dotfiles
+./install.sh ~/code/dotfiles
 ```
 
 You can also use the dry-run option to see what changes will be made without actually applying them:
@@ -51,7 +52,7 @@ You can also use the dry-run option to see what changes will be made without act
 ```sh
 ./install.sh --dry-run
 # or with a directory
-./install.sh ~/gitFolders/dotfiles --dry-run
+./install.sh ~/code/dotfiles --dry-run
 ```
 
 Alternatively, you can follow the manual steps below.
@@ -73,8 +74,8 @@ brew bundle
 mv ~/.zshrc ~/.zshrc.bak 2>/dev/null
 
 # Symlink configurations
-ln -sfn ~/gitFolders/dotfiles/.zshrc ~/.zshrc
-ln -sfn ~/gitFolders/dotfiles/.zsh ~/.zsh
+ln -sfn ~/code/dotfiles/.zshrc ~/.zshrc
+ln -sfn ~/code/dotfiles/.zsh ~/.zsh
 
 # Note: Zimfw and Powerlevel10k are used. Ensure they are installed via Homebrew.
 ```
@@ -91,7 +92,7 @@ curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --c
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 mkdir -p ~/.config/nvim
-ln -sfn ~/gitFolders/dotfiles/.vim/vimrc ~/.config/nvim/init.vim
+ln -sfn ~/code/dotfiles/.vim/vimrc ~/.config/nvim/init.vim
 nvim +PlugInstall +qall
 ```
 
@@ -102,14 +103,14 @@ nvim +PlugInstall +qall
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-ln -sfn ~/gitFolders/dotfiles/.vim/vimrc ~/.vimrc
+ln -sfn ~/code/dotfiles/.vim/vimrc ~/.vimrc
 vim +PlugInstall +qall
 ```
 
 #### Tmux
 
 ```sh
-ln -sfn ~/gitFolders/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sfn ~/code/dotfiles/.tmux.conf ~/.tmux.conf
 
 # Install TPM (Tmux Plugin Manager)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -121,8 +122,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ```sh
 mkdir -p ~/.config/helix
-ln -sfn ~/gitFolders/dotfiles/helix/config.toml ~/.config/helix/config.toml
-ln -sfn ~/gitFolders/dotfiles/helix/languages.toml ~/.config/helix/languages.toml
+ln -sfn ~/code/dotfiles/helix/config.toml ~/.config/helix/config.toml
+ln -sfn ~/code/dotfiles/helix/languages.toml ~/.config/helix/languages.toml
 ```
 
 ## 📜 Custom Scripts & Functions
