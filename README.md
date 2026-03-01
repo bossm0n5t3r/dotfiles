@@ -126,6 +126,13 @@ ln -sfn ~/code/dotfiles/helix/config.toml ~/.config/helix/config.toml
 ln -sfn ~/code/dotfiles/helix/languages.toml ~/.config/helix/languages.toml
 ```
 
+#### Ghostty
+
+```sh
+mkdir -p ~/.config/ghostty
+ln -sfn ~/code/dotfiles/ghostty/config ~/.config/ghostty/config
+```
+
 ## 📜 Custom Scripts & Functions
 
 The `.zsh/functions/` directory contains several utility functions:
@@ -164,6 +171,7 @@ docker-compose up -d
 │   └── functions/          # Custom Zsh functions
 ├── .zshrc                  # Zsh main configuration
 ├── Brewfile                # Homebrew dependencies
+├── ghostty/                # Ghostty terminal configuration
 ├── helix/                  # Helix editor configuration
 ├── docker-compose.yaml     # Local DB/Cache setup
 ├── LICENSE                 # MIT License
