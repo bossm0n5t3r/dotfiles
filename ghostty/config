@@ -30,6 +30,7 @@ cursor-style = block
 cursor-style-blink = true
 mouse-hide-while-typing = true
 copy-on-select = clipboard
+shell-integration-features = no-cursor
 
 # ----------------------------
 # Scrolling & Performance
