@@ -124,6 +124,16 @@ run_cmd mkdir -p "$HOME/.config/helix"
 create_symlink "$DOTFILES_DIR/helix/config.toml" "$HOME/.config/helix/config.toml"
 create_symlink "$DOTFILES_DIR/helix/languages.toml" "$HOME/.config/helix/languages.toml"
 
+# Ghostty
+if [ -d "$DOTFILES_DIR/ghostty" ]; then
+    if command -v ghostty &>/dev/null || [ -d "/Applications/Ghostty.app" ]; then
+        run_cmd mkdir -p "$HOME/.config/ghostty"
+        create_symlink "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
+    else
+        echo -e "    ${YELLOW}Ghostty 앱이 설치되어 있지 않아 설정을 건너뜁니다.${NC}"
+    fi
+fi
+
 # 3. 플러그인 매니저 설치 및 플러그인 설치
 echo -e "${BLUE}==> 플러그인 매니저를 설치하고 플러그인을 설정합니다...${NC}"
 
