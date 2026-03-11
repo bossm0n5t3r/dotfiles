@@ -7,26 +7,37 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "disable_ai": true,
+  "agent": {
+    "default_model": {
+      "provider": "openai",
+      "model": "gpt-5.3-codex",
+      "enable_thinking": true,
+    },
+    "commit_message_model": {
+      "provider": "openai",
+      "model": "gpt-5-mini",
+    },
+  },
+  "disable_ai": false,
   "lsp": {
     "kotlin-language-server": {
       "settings": {
         "compiler": {
           "jvm": {
-            "target": "21"
-          }
-        }
-      }
-    }
+            "target": "21",
+          },
+        },
+      },
+    },
   },
   "languages": {
     "Kotlin": {
-      "language_servers": ["kotlin-lsp"]
-    }
+      "language_servers": ["kotlin-lsp"],
+    },
   },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "base_keymap": "JetBrains",
   "ui_font_family": "D2Coding",
@@ -37,7 +48,7 @@
   "theme": {
     "mode": "system",
     "light": "Catppuccin Mocha",
-    "dark": "Catppuccin Mocha"
+    "dark": "Catppuccin Mocha",
   },
-  "icon_theme": "Catppuccin Mocha"
+  "icon_theme": "Catppuccin Mocha",
 }
