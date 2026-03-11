@@ -59,7 +59,8 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 # PATH & Languages
 ###############################################
 
-export EDITOR='vim'
+export EDITOR="vim"
+export VISUAL="$EDITOR"
 
 # Go
 export GOPATH="$HOME/go"
