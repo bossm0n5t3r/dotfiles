@@ -7,6 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "git_panel": {
+    "tree_view": true,
+  },
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry",
+    },
+  },
   "agent": {
     "default_model": {
       "provider": "openai",
@@ -15,7 +23,7 @@
     },
     "commit_message_model": {
       "provider": "openai",
-      "model": "gpt-5-mini",
+      "model": "gpt-5.3-codex",
     },
   },
   "disable_ai": false,
