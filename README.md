@@ -160,6 +160,36 @@ Docker Compose files are available for local development:
 docker-compose up -d
 ```
 
+### Docker Cleanup Script
+
+Use `docker_cleanup.sh` to remove unused Docker resources with predictable modes.
+
+- `--help`, `-h`: show usage and examples.
+- `MODE=safe` (default): prune stopped containers, dangling images, and old build cache.
+- `MODE=aggressive`: prune all unused images and all build cache.
+- `PRUNE_VOLUMES=1`: also prune unused volumes (default: `0`).
+- `CACHE_UNTIL`: build cache age filter for safe mode (default: `168h`).
+- `DRY_RUN=1`: print commands without executing them (default: `0`).
+
+```sh
+# Show help
+./docker_cleanup.sh --help
+
+# Default safe cleanup
+./docker_cleanup.sh
+
+# Safe mode + custom build cache window (48 hours)
+CACHE_UNTIL=48h ./docker_cleanup.sh
+
+# Aggressive cleanup including volumes
+MODE=aggressive PRUNE_VOLUMES=1 ./docker_cleanup.sh
+
+# Preview only (no changes)
+DRY_RUN=1 MODE=aggressive PRUNE_VOLUMES=1 ./docker_cleanup.sh
+```
+
+The script validates `MODE`, `PRUNE_VOLUMES`, and `DRY_RUN` values and exits with an error on invalid inputs.
+
 ## 📂 Project Structure
 
 ```text
