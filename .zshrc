@@ -69,8 +69,8 @@ export GOROOT="/opt/homebrew/opt/go/libexec"
 # Rust
 export RUSTUP_ROOT="/opt/homebrew/opt/rustup"
 
-# Flutter / Go / Rust / Ruby
-export PATH=$PATH:$HOME/flutter/bin:${RUSTUP_ROOT}/bin:${GOPATH}/bin:${GOROOT}/bin
+# Flutter / Go / Rust / Ruby / Obsidian
+export PATH=$PATH:$HOME/flutter/bin:${RUSTUP_ROOT}/bin:${GOPATH}/bin:${GOROOT}/bin:/Applications/Obsidian.app/Contents/MacOS
 
 # Ruby (Homebrew + gem bin)
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
