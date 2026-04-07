@@ -33,15 +33,20 @@ ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 # Homebrew zimfw script path (Apple Silicon)
 ZIMFW_SCRIPT=/opt/homebrew/opt/zimfw/share/zimfw.zsh
 
-# If init.zsh is missing or older than the config file, regenerate it.
-if [[ -f "${ZIMFW_SCRIPT}" ]]; then
-  if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
-    source "${ZIMFW_SCRIPT}" init
+# Initialize Zim only once per shell session to keep `source ~/.zshrc` idempotent.
+if [[ -z "${DOTFILES_ZIM_INITIALIZED:-}" ]]; then
+  # If init.zsh is missing or older than the config file, regenerate it.
+  if [[ -f "${ZIMFW_SCRIPT}" ]]; then
+    if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
+      source "${ZIMFW_SCRIPT}" init
+    fi
   fi
-fi
 
-# Initialize Zim modules
-[[ -f ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
+  # Initialize Zim modules
+  [[ -f ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
+
+  export DOTFILES_ZIM_INITIALIZED=1
+fi
 
 # history-substring-search (works only if the Zim module is enabled)
 zmodload -F zsh/terminfo +p:terminfo
