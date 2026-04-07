@@ -62,6 +62,9 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 export EDITOR="vim"
 export VISUAL="$EDITOR"
 
+# uv tool / pipx global CLI executables
+export PATH="$HOME/.local/bin:$PATH"
+
 # Go
 export GOPATH="$HOME/go"
 export GOROOT="/opt/homebrew/opt/go/libexec"
