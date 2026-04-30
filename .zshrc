@@ -65,6 +65,9 @@ export VISUAL="$EDITOR"
 # uv tool / pipx global CLI executables
 export PATH="$HOME/.local/bin:$PATH"
 
+# GraalVM
+export GRAALVM_HOME=$HOME/.sdkman/candidates/java/25.0.2-graalce
+
 # Go
 export GOPATH="$HOME/go"
 export GOROOT="/opt/homebrew/opt/go/libexec"
