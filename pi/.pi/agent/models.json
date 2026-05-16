@@ -1,12 +1,16 @@
 {
   "providers": {
-    "mlx-lm": {
-      "baseUrl": "http://localhost:8080/v1",
+    "ollama": {
       "api": "openai-completions",
-      "apiKey": "none",
+      "apiKey": "ollama",
+      "baseUrl": "http://127.0.0.1:11434/v1",
       "models": [
         {
-          "id": "mlx-community/Qwen3.5-9B-MLX-4bit"
+          "_launch": true,
+          "contextWindow": 131072,
+          "id": "gemma4:e4b",
+          "input": ["text", "image"],
+          "reasoning": true
         }
       ]
     }

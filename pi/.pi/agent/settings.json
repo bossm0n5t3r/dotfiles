@@ -1,5 +1,6 @@
 {
+  "defaultModel": "gemma4:e4b",
+  "defaultProvider": "ollama",
   "lastChangelogVersion": "0.74.0",
-  "defaultProvider": "mlx-lm",
-  "defaultModel": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  "packages": ["npm:@ollama/pi-web-search"]
 }
