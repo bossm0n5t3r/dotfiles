@@ -1,6 +1,7 @@
 {
-  "defaultModel": "qwen3.5:9b",
-  "defaultProvider": "ollama",
-  "lastChangelogVersion": "0.74.0",
-  "packages": ["npm:@ollama/pi-web-search"]
+  "defaultModel": "gpt-5.5",
+  "defaultProvider": "openai-codex",
+  "lastChangelogVersion": "0.75.5",
+  "packages": [],
+  "defaultThinkingLevel": "medium"
 }
