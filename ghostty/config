@@ -41,5 +41,5 @@ scrollback-limit = 100000
 # Keybindings
 # ----------------------------
 keybind = cmd+shift+r=reload_config
-keybind = cmd+d=new_split:right
-keybind = cmd+shift+d=new_split:down
+keybind = cmd+\=new_split:right
+keybind = cmd+shift+\=new_split:down
