@@ -51,7 +51,13 @@ If this skill is invoked directly with no additional user text, treat that as a 
    - Add `BREAKING CHANGE:` footer when the staged diff includes a breaking change.
    - Do not include backticks or code fences in the commit message.
 
-5. Present the generated message to the user and ask for confirmation:
+5. Present the generated message to the user and ask for confirmation.
+   Always use this exact fixed confirmation prompt, without paraphrasing:
+
+   ```text
+   다음 커밋 메시지로 커밋할까요? 답변: yes / regenerate / edit / cancel
+   ```
+
    - Confirm: commit with this exact message if the user asked to commit.
    - Regenerate: create a new candidate message from the same staged diff, then ask again.
    - Edit/custom request: adjust the message accordingly, then ask again.
