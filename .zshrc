@@ -8,6 +8,11 @@ if [[ -n "$INTELLIJ_ENVIRONMENT_READER" ]]; then
   return
 fi
 
+# Powerlevel10k instant prompt. Keep this close to the top of ~/.zshrc.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 
 ###############################################
 # Basic Zsh Configuration
@@ -80,8 +85,12 @@ export PATH=$PATH:$HOME/flutter/bin:${RUSTUP_ROOT}/bin:${GOPATH}/bin:${GOROOT}/b
 
 # Ruby (Homebrew + gem bin)
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
-  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
-  export PATH=$(gem environment gemdir)/bin:$PATH
+  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+  for gem_bin in /opt/homebrew/lib/ruby/gems/*/bin(N); do
+    [[ -d "$gem_bin" ]] && export PATH="$gem_bin:$PATH"
+  done
+  unset gem_bin
 fi
 
 # Android
@@ -113,12 +122,20 @@ done
 
 # pyenv initialization
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+  if (( $+functions[_evalcache] )); then
+    _evalcache pyenv init - zsh
+  else
+    eval "$(pyenv init - zsh)"
+  fi
 fi
 
 # fnm (Node Version Manager)
 if command -v fnm 1>/dev/null 2>&1; then
-  eval "$(fnm env --use-on-cd)"
+  if (( $+functions[zsh-defer] )); then
+    zsh-defer -c 'eval "$(fnm env --use-on-cd)"'
+  else
+    eval "$(fnm env --use-on-cd)"
+  fi
 fi
 
 # fzf (Homebrew)
@@ -150,7 +167,17 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 # Kubernetes (kubectl completion)
 ###############################################
 
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+if [[ $commands[kubectl] ]]; then
+  KUBECTL_COMPLETION_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/kubectl_completion.zsh"
+  mkdir -p "${KUBECTL_COMPLETION_CACHE:h}"
+
+  if [[ ! -f "$KUBECTL_COMPLETION_CACHE" || "$KUBECTL_COMPLETION_CACHE" -ot "$(command -v kubectl)" ]]; then
+    kubectl completion zsh >| "$KUBECTL_COMPLETION_CACHE"
+  fi
+
+  source "$KUBECTL_COMPLETION_CACHE"
+  unset KUBECTL_COMPLETION_CACHE
+fi
 
 
 ###############################################
