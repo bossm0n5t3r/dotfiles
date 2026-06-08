@@ -3,94 +3,182 @@ tap "homebrew/core"
 tap "jetbrains-junie/junie"
 tap "oven-sh/bun"
 tap "spring-cli-projects/spring-cli"
+# Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima", restart_service: :changed
+# Pack, ship and run any application as a lightweight container
 brew "docker"
+# Docker CLI plugin for extended build capabilities with BuildKit
 brew "docker-buildx"
+# Isolated development environments using Docker
 brew "docker-compose"
+# C/C++ and Java libraries for Unicode and globalization
 brew "icu4c@78"
+# Git for Data
 brew "dolt"
+# Programming language for highly scalable real-time systems
 brew "erlang"
+# Functional metaprogramming aware language built on Erlang VM
 brew "elixir"
+# Command-line tools for fly.io services
 brew "flyctl"
+# Fast and simple Node.js version manager
 brew "fnm"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# Interact with Google Gemini AI models from the command-line
 brew "gemini-cli"
+# Distributed revision control system
 brew "git"
+# Statically typed language for the Erlang VM
+brew "gleam"
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Post-modern modal text editor
 brew "helix"
+# Kubernetes package manager
 brew "helm"
+# Improved top (interactive process viewer)
 brew "htop"
+# User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
+# Configurable static site generator
 brew "hugo"
+# JQ clone focussed on correctness, speed, and simplicity
 brew "jaq"
+# Environment diagnostics for Kotlin Multiplatform Mobile app development
 brew "kdoctor"
+# Run local Kubernetes cluster in Docker
 brew "kind"
+# Generates Ktor projects through the command-line interface
+brew "ktor"
+# Kubernetes command-line interface
 brew "kubernetes-cli"
+# Template-free customization of Kubernetes YAML manifests
 brew "kustomize"
+# Lazier way to manage everything docker
 brew "lazydocker"
+# Run a Kubernetes cluster locally
 brew "minikube"
+# Simple tool to make locally trusted development certificates
 brew "mkcert"
-brew "mole"
+# Create, run, and share large language models (LLMs)
 brew "ollama"
+# AI coding agent, built for the terminal
 brew "opencode"
+# CLI for Postgres with auto-completion and syntax highlighting
 brew "pgcli"
+# AI agent toolkit
 brew "pi-coding-agent"
+# Package compiler and linker metadata toolkit
 brew "pkgconf"
+# Fast, disk space efficient package manager
 brew "pnpm"
+# Theme for zsh
 brew "powerlevel10k"
+# Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
+# Python version management
 brew "pyenv"
+# Generic machine emulator and virtualizer
 brew "qemu"
+# Powerful, clean, object-oriented scripting language
 brew "ruby"
+# Extremely fast Python linter, written in Rust
 brew "ruff"
+# Rust toolchain installer
 brew "rustup"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
+# Terminal multiplexer
 brew "tmux"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Language for application scale JavaScript development
 brew "typescript"
+# Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Vi 'workalike' with many additional features
 brew "vim"
+# Library to create, extract, and modify Windows Imaging files
 brew "wimlib"
+# JavaScript package manager
 brew "yarn"
+# Programming language designed for robustness, optimality, and clarity
 brew "zig"
+# Zsh plugin manager
 brew "zimfw"
+# Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-brew "jetbrains-junie/junie/junie"
-brew "oven-sh/bun/bun"
-brew "spring-cli-projects/spring-cli/spring-cli"
+# Junie CLI
+brew "jetbrains-junie/junie/junie", trusted: true
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun", trusted: true
+# Spring CLI improves your productivity when creating new Spring projects or adding functionality to existing projects
+brew "spring-cli-projects/spring-cli/spring-cli", trusted: true
+# Application uninstaller
 cask "appcleaner"
+# Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
+# Desktop password and login vault
 cask "bitwarden"
+# Open source IDE for exploring and testing APIs
 cask "bruno"
+# OpenAI's official ChatGPT desktop app
 cask "chatgpt"
+# OpenAI's coding agent that runs in your terminal
 cask "codex"
+# OpenAI's Codex desktop app for managing coding agents
 cask "codex-app"
+# Voice and text chat software
 cask "discord"
+# Online diagram software
 cask "drawio"
+# Web browser
 cask "firefox"
 cask "font-d2coding"
+# GIT client
 cask "fork"
+# Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Web browser
 cask "google-chrome"
+# Native desktop AI assistant from Google
 cask "google-gemini"
+# Utility to hide menu bar items
 cask "hiddenbar"
+# Menu bar calendar
 cask "itsycal"
+# JetBrains tools manager
 cask "jetbrains-toolbox"
+# Tool to prevent the system from going into sleep mode
 cask "keepingyouawake"
+# File archiver
 cask "keka"
+# Official Kotlin Language Server
 cask "kotlin-lsp"
-cask "logi-options+"
+# Privacy-first, open-source platform for knowledge sharing and management
 cask "logseq"
+# Orchestrates virtual Ubuntu instances
 cask "multipass"
+# App to write, plan, collaborate, and get organised
 cask "notion"
+# Verify system files structure, run miscellaneous maintenance and more
 cask "onyx"
+# Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# GUI for streamlined Redis application development
 cask "redis-insight"
+# Team communication and collaboration software
 cask "slack"
+# Music streaming service
 cask "spotify"
+# Messaging app with a focus on speed and security
 cask "telegram"
+# System tray app for automatic time tracking
 cask "wakatime"
+# Multiplayer code editor
 cask "zed"
 vscode "animus-coop.vscode-elixir-mix-formatter"
 vscode "betterthantomorrow.calva"
