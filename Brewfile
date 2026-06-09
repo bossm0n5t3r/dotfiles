@@ -2,7 +2,6 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "jetbrains-junie/junie"
 tap "oven-sh/bun"
-tap "spring-cli-projects/spring-cli"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima", restart_service: :changed
 # Pack, ship and run any application as a lightweight container
@@ -115,8 +114,6 @@ brew "zsh-syntax-highlighting"
 brew "jetbrains-junie/junie/junie", trusted: true
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun", trusted: true
-# Spring CLI improves your productivity when creating new Spring projects or adding functionality to existing projects
-brew "spring-cli-projects/spring-cli/spring-cli", trusted: true
 # Application uninstaller
 cask "appcleaner"
 # Tool to flash OS images to SD cards & USB drives
