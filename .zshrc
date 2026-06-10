@@ -48,6 +48,9 @@ fi
 # Initialize Zim modules
 [[ -f ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
+# Keep Zim's environment defaults, but do not auto-cd into directories
+unsetopt AUTO_CD
+
 # history-substring-search (works only if the Zim module is enabled)
 zmodload -F zsh/terminfo +p:terminfo
 for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
