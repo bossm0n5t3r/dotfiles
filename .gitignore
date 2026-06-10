@@ -2,3 +2,9 @@
 .idea/
 pi/.pi/agent/sessions/
 pi/.pi/agent/auth.json
+
+# OMP: ignore local state and keep only portable config
+omp/.omp/*
+!omp/.omp/agent/
+omp/.omp/agent/*
+!omp/.omp/agent/config.yml
