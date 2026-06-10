@@ -1,6 +1,5 @@
 tap "homebrew/cask"
 tap "homebrew/core"
-tap "jetbrains-junie/junie"
 tap "oven-sh/bun"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima", restart_service: :changed
@@ -110,8 +109,6 @@ brew "zig"
 brew "zimfw"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-# Junie CLI
-brew "jetbrains-junie/junie/junie", trusted: true
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun", trusted: true
 # Application uninstaller
