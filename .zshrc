@@ -126,7 +126,7 @@ done
 # pyenv initialization
 if command -v pyenv 1>/dev/null 2>&1; then
   if (( $+functions[_evalcache] )); then
-    _evalcache pyenv init - zsh
+    _evalcache PYENV_EVALCACHE_VERSION="$(pyenv --version)" pyenv init - zsh
   else
     eval "$(pyenv init - zsh)"
   fi
