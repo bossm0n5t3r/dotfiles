@@ -1,3 +1,4 @@
+# Local development only: default credentials and empty cache password are intentionally non-secret.
 services:
   db:
     container_name: postgres
