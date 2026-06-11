@@ -1,3 +1,4 @@
+tap "can1357/tap"
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "oven-sh/bun"
@@ -87,6 +88,8 @@ brew "ruby"
 brew "ruff"
 # Rust toolchain installer
 brew "rustup"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Terminal multiplexer
@@ -109,6 +112,8 @@ brew "zig"
 brew "zimfw"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+# Coding agent with the IDE wired in
+brew "can1357/tap/omp", trusted: true
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun", trusted: true
 # Application uninstaller
