@@ -189,3 +189,7 @@ fi
 
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+# >>> aienv >>>
+[ -f "$HOME/.aienv/env" ] && source "$HOME/.aienv/env"
+# <<< aienv <<<
