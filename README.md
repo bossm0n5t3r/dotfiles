@@ -56,6 +56,12 @@ You can also use the dry-run option to see what changes will be made without act
 ./install.sh ~/code/dotfiles --dry-run
 ```
 
+You can verify the current symlink state at any time:
+
+```sh
+./doctor.sh
+```
+
 Alternatively, you can follow the manual steps below.
 
 ### 3. Manual Installation (Optional)
@@ -188,7 +194,7 @@ Key variables managed in `zsh/.zshrc`:
 - `ANDROID_HOME`: Android SDK path.
 - `TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE`, `DOCKER_HOST`: Colima/Docker configuration.
 
-*Note: Sensitive keys should be placed in `~/.secret_keys`, which is automatically sourced.*
+**Note: Sensitive keys should be placed in `~/.secret_keys`, which is automatically sourced.**
 
 ## ⚖️ License
 
