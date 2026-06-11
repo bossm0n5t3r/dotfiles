@@ -2,6 +2,7 @@
 .idea/
 pi/.pi/agent/sessions/
 pi/.pi/agent/auth.json
+pi/.pi/agent/trust.json
 
 # OMP: ignore local state and keep only portable config
 omp/.omp/*
