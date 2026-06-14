@@ -7,3 +7,5 @@ theme:
 defaultThinkingLevel: medium
 modelRoles:
   default: openai-codex/gpt-5.5:medium
+tools:
+  approvalMode: always-ask
