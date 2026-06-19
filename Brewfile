@@ -24,8 +24,6 @@ brew "flyctl"
 brew "fnm"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# Interact with Google Gemini AI models from the command-line
-brew "gemini-cli"
 # Distributed revision control system
 brew "git"
 # Statically typed language for the Erlang VM
@@ -165,6 +163,8 @@ cask "multipass"
 cask "notion"
 # Verify system files structure, run miscellaneous maintenance and more
 cask "onyx"
+# VPN client focusing on security
+cask "protonvpn"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # GUI for streamlined Redis application development
