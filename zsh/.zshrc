@@ -27,6 +27,8 @@ bindkey -e
 # Remove / from WORDCHARS to improve path navigation behavior
 WORDCHARS=${WORDCHARS//[\/]}
 
+# GPG: tell pinentry which terminal to use
+export GPG_TTY=$(tty)
 
 ###############################################
 # Zim Initialization (Homebrew zimfw)
