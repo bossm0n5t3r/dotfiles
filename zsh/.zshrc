@@ -4,15 +4,14 @@
 # When IntelliJ spawns a shell only to read the environment,
 # skip Zim/prompt/plugins to avoid side effects (e.g. noclobber issues).
 if [[ -n "$INTELLIJ_ENVIRONMENT_READER" ]]; then
-  set +o noclobber 2>/dev/null
-  return
+    set +o noclobber 2>/dev/null
+    return
 fi
 
 # Powerlevel10k instant prompt. Keep this close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
 
 ###############################################
 # Basic Zsh Configuration
@@ -25,7 +24,7 @@ setopt HIST_IGNORE_ALL_DUPS
 bindkey -e
 
 # Remove / from WORDCHARS to improve path navigation behavior
-WORDCHARS=${WORDCHARS//[\/]}
+WORDCHARS=${WORDCHARS//[\/]/}
 
 # GPG: tell pinentry which terminal to use
 export GPG_TTY=$(tty)
@@ -42,9 +41,9 @@ ZIMFW_SCRIPT=/opt/homebrew/opt/zimfw/share/zimfw.zsh
 
 # If init.zsh is missing or older than the config file, regenerate it.
 if [[ -f "${ZIMFW_SCRIPT}" ]]; then
-  if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
-    source "${ZIMFW_SCRIPT}" init
-  fi
+    if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
+        source "${ZIMFW_SCRIPT}" init
+    fi
 fi
 
 # Initialize Zim modules
@@ -55,15 +54,22 @@ unsetopt AUTO_CD
 
 # history-substring-search (works only if the Zim module is enabled)
 zmodload -F zsh/terminfo +p:terminfo
-for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
-for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
-for key ('k') bindkey -M vicmd ${key} history-substring-search-up
-for key ('j') bindkey -M vicmd ${key} history-substring-search-down
+for key in '^[[A' '^P' ${terminfo[kcuu1]}; do
+    bindkey "${key}" history-substring-search-up
+done
+for key in '^[[B' '^N' ${terminfo[kcud1]}; do
+    bindkey "${key}" history-substring-search-down
+done
+for key in 'k'; do
+    bindkey -M vicmd "${key}" history-substring-search-up
+done
+for key in 'j'; do
+    bindkey -M vicmd "${key}" history-substring-search-down
+done
 unset key
 
 # zsh-autosuggestions (Zim module option)
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-
 
 ###############################################
 # PATH & Languages
@@ -90,17 +96,16 @@ export PATH=$PATH:$HOME/flutter/bin:${RUSTUP_ROOT}/bin:${GOPATH}/bin:${GOROOT}/b
 
 # Ruby (Homebrew + gem bin)
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
-  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+    export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
-  for gem_bin in /opt/homebrew/lib/ruby/gems/*/bin(N); do
-    [[ -d "$gem_bin" ]] && export PATH="$gem_bin:$PATH"
-  done
-  unset gem_bin
+    for gem_bin in /opt/homebrew/lib/ruby/gems/*/bin(N); do
+        [[ -d "$gem_bin" ]] && export PATH="$gem_bin:$PATH"
+    done
+    unset gem_bin
 fi
 
 # Android
 export ANDROID_HOME=~/Library/Android/sdk
-
 
 ###############################################
 # Aliases
@@ -111,15 +116,13 @@ alias k='kubectl'
 alias lg='lazygit'
 alias lzd='lazydocker'
 
-
 ###############################################
 # Functions (~/.zsh/functions/*.zsh)
 ###############################################
 
 for f in $HOME/.zsh/functions/*.zsh; do
-  [[ -r "$f" ]] && source "$f"
+    [[ -r "$f" ]] && source "$f"
 done
-
 
 ###############################################
 # Tools (pyenv, fnm, fzf, Colima, secrets)
@@ -127,29 +130,29 @@ done
 
 # pyenv initialization
 if command -v pyenv 1>/dev/null 2>&1; then
-  if (( $+functions[_evalcache] )); then
-    _evalcache PYENV_EVALCACHE_VERSION="$(pyenv --version)" pyenv init - zsh
-  else
-    eval "$(pyenv init - zsh)"
-  fi
+    if (($+functions[_evalcache])); then
+        _evalcache PYENV_EVALCACHE_VERSION="$(pyenv --version)" pyenv init - zsh
+    else
+        eval "$(pyenv init - zsh)"
+    fi
 fi
 
 # fnm (Node Version Manager)
 if command -v fnm 1>/dev/null 2>&1; then
-  if (( $+functions[zsh-defer] )); then
-    zsh-defer -c 'eval "$(fnm env --use-on-cd)"'
-  else
-    eval "$(fnm env --use-on-cd)"
-  fi
+    if (($+functions[zsh - defer])); then
+        zsh-defer -c 'eval "$(fnm env --use-on-cd)"'
+    else
+        eval "$(fnm env --use-on-cd)"
+    fi
 fi
 
 # fzf (Homebrew)
 if [[ -f /opt/homebrew/opt/fzf/shell/completion.zsh ]]; then
-  source /opt/homebrew/opt/fzf/shell/completion.zsh
+    source /opt/homebrew/opt/fzf/shell/completion.zsh
 fi
 
 if [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
-  source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+    source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 fi
 
 # Colima / Testcontainers
@@ -160,7 +163,6 @@ export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 # Secret keys
 [ -f "$HOME/.secret_keys" ] && source "$HOME/.secret_keys"
 
-
 ###############################################
 # Powerlevel10k (Prompt)
 ###############################################
@@ -168,23 +170,21 @@ export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 [[ -f "$HOME/.p10k.zsh" ]] && source "$HOME/.p10k.zsh"
 
-
 ###############################################
 # Kubernetes (kubectl completion)
 ###############################################
 
 if [[ $commands[kubectl] ]]; then
-  KUBECTL_COMPLETION_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/kubectl_completion.zsh"
-  mkdir -p "${KUBECTL_COMPLETION_CACHE:h}"
+    KUBECTL_COMPLETION_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/kubectl_completion.zsh"
+    mkdir -p "${KUBECTL_COMPLETION_CACHE:h}"
 
-  if [[ ! -f "$KUBECTL_COMPLETION_CACHE" || "$KUBECTL_COMPLETION_CACHE" -ot "$(command -v kubectl)" ]]; then
-    kubectl completion zsh >| "$KUBECTL_COMPLETION_CACHE"
-  fi
+    if [[ ! -f "$KUBECTL_COMPLETION_CACHE" || "$KUBECTL_COMPLETION_CACHE" -ot "$(command -v kubectl)" ]]; then
+        kubectl completion zsh >|"$KUBECTL_COMPLETION_CACHE"
+    fi
 
-  source "$KUBECTL_COMPLETION_CACHE"
-  unset KUBECTL_COMPLETION_CACHE
+    source "$KUBECTL_COMPLETION_CACHE"
+    unset KUBECTL_COMPLETION_CACHE
 fi
-
 
 ###############################################
 # SDKMAN (must be last)

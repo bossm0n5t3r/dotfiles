@@ -14,4 +14,3 @@ reset-launchpad() {
 sdk-upgrade-all() {
     sdk selfupdate && sdk upgrade
 }
-
