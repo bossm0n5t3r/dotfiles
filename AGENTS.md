@@ -26,7 +26,7 @@
 - Shell 스크립트는 Bash 기준, 들여쓰기 4칸을 유지합니다(`install.sh` 스타일 준수).
 - 파일/디렉터리명은 기존 규칙을 따릅니다: 설정 파일은 툴 이름 그대로 사용(예: `ghostty/config`, `helix/config.toml`).
 - 스크립트 수정 시 `--dry-run` 동작을 깨지 않도록 분기 로직을 함께 점검합니다.
-- 포맷터 강제는 없지만, Shell 변경 시 `shellcheck install.sh` 실행을 권장합니다.
+- Shell 스크립트 관련 추가·변경 작업 시 `shfmt -i 4 -d <file>`로 포맷을 검증하고, `shellcheck <file>`을 실행합니다.
 
 ## Testing Guidelines
 
