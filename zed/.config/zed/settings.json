@@ -65,6 +65,7 @@
         // Fix all auto-fixable lint violations
         "source.fixAll.ruff": true,
       },
+      "language_servers": ["pyright", "!basedpyright"],
     },
   },
   "telemetry": {
