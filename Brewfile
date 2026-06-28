@@ -116,6 +116,8 @@ brew "zsh-syntax-highlighting"
 brew "can1357/tap/omp", trusted: true
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun", trusted: true
+# Terminal interface for Antigravity agents
+cask "antigravity-cli"
 # Application uninstaller
 cask "appcleaner"
 # Tool to flash OS images to SD cards & USB drives
@@ -128,8 +130,6 @@ cask "bruno"
 cask "chatgpt"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
-# OpenAI's Codex desktop app for managing coding agents
-cask "codex-app"
 # Voice and text chat software
 cask "discord"
 # Online diagram software
