@@ -1,0 +1,7 @@
+[user]
+	name = bossm0n5t3r
+	email = bossm0n5t3r@gmail.com
+[pull]
+	rebase = false
+[core]
+	autocrlf = input

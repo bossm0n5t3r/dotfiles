@@ -15,9 +15,18 @@ NC='\033[0m' # No Color
 
 while [[ "$#" -gt 0 ]]; do
     case $1 in
-        -d|--dry-run) DRY_RUN=true; shift ;;
-        -*) echo "알 수 없는 옵션: $1"; exit 1 ;;
-        *) DOTFILES_DIR="$(cd "$1" && pwd)"; shift ;;
+    -d | --dry-run)
+        DRY_RUN=true
+        shift
+        ;;
+    -*)
+        echo "알 수 없는 옵션: $1"
+        exit 1
+        ;;
+    *)
+        DOTFILES_DIR="$(cd "$1" && pwd)"
+        shift
+        ;;
     esac
 done
 
@@ -141,6 +150,7 @@ STOW_PACKAGES=(
     alacritty
     zed
     vscode
+    git
 )
 
 AVAILABLE_PACKAGES=()
