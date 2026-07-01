@@ -4,9 +4,16 @@ setupVersion: 1
 theme:
   dark: dark-catppuccin
   light: light-catppuccin
-defaultThinkingLevel: auto
 modelRoles:
-  default: openai-codex/gpt-5.5:medium
+  default: opencode-go/kimi-k2.7-code:low
+  smol: opencode-go/deepseek-v4-flash:minimal
+  tiny: opencode-go/deepseek-v4-flash:minimal
+  task: opencode-go/kimi-k2.7-code:low
+  commit: opencode-go/deepseek-v4-flash:minimal
+  plan: openai-codex/gpt-5.5:medium
+  slow: openai-codex/gpt-5.5:high
+  advisor: openai-codex/gpt-5.5:xhigh
+  vision: openai-codex/gpt-5.5:medium
 statusLine:
   preset: ascii
   separator: ascii
