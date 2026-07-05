@@ -5,10 +5,10 @@ theme:
   dark: dark-catppuccin
   light: light-catppuccin
 modelRoles:
-  default: opencode-go/kimi-k2.7-code:low
+  default: opencode-go/kimi-k2.7-code:medium
   smol: opencode-go/deepseek-v4-flash:minimal
   tiny: opencode-go/deepseek-v4-flash:minimal
-  task: opencode-go/kimi-k2.7-code:low
+  task: opencode-go/kimi-k2.7-code:high
   commit: opencode-go/deepseek-v4-flash:minimal
   plan: openai-codex/gpt-5.5:medium
   slow: openai-codex/gpt-5.5:high
