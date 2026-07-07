@@ -116,6 +116,8 @@ brew "zsh-syntax-highlighting"
 brew "can1357/tap/omp", trusted: true
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun", trusted: true
+# Memory training application
+cask "anki"
 # Terminal interface for Antigravity agents
 cask "antigravity-cli"
 # Application uninstaller
@@ -130,6 +132,8 @@ cask "bruno"
 cask "chatgpt"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
+# Menu bar usage monitor for Codex and Claude
+cask "codexbar"
 # Voice and text chat software
 cask "discord"
 # Online diagram software
@@ -143,8 +147,6 @@ cask "fork"
 cask "ghostty"
 # Web browser
 cask "google-chrome"
-# Native desktop AI assistant from Google
-cask "google-gemini"
 # Utility to hide menu bar items
 cask "hiddenbar"
 # Menu bar calendar
@@ -251,3 +253,4 @@ vscode "yzhang.markdown-all-in-one"
 go "golang.org/x/tools/gopls"
 go "honnef.co/go/tools/cmd/staticcheck"
 uv "acw"
+uv "trafilatura"
