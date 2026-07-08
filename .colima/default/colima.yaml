@@ -6,7 +6,7 @@ cpu: 2
 # NOTE: value can only be increased after virtual machine has been created.
 #
 # Default: 100
-disk: 23
+disk: 50
 
 # Size of the memory in GiB to be allocated to the virtual machine.
 # Default: 2
@@ -274,7 +274,7 @@ forceDiskImage: false
 # Size of the disk in GiB for the root filesystem of the virtual machine.
 # This value is ignored if no runtime is in use. i.e. `none` runtime.
 # Default: 20
-rootDisk: 20
+rootDisk: 50
 
 # Environment variables for the virtual machine.
 #
