@@ -118,8 +118,6 @@ brew "can1357/tap/omp", trusted: true
 brew "oven-sh/bun/bun", trusted: true
 # Memory training application
 cask "anki"
-# Terminal interface for Antigravity agents
-cask "antigravity-cli"
 # Application uninstaller
 cask "appcleaner"
 # Tool to flash OS images to SD cards & USB drives
@@ -141,6 +139,7 @@ cask "drawio"
 # Web browser
 cask "firefox"
 cask "font-d2coding"
+cask "font-d2coding-nerd-font"
 # GIT client
 cask "fork"
 # Terminal emulator that uses platform-native UI and GPU acceleration
