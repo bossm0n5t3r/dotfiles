@@ -75,9 +75,9 @@
     "metrics": false,
   },
   "base_keymap": "JetBrains",
-  "ui_font_family": "D2Coding",
+  "ui_font_family": "D2CodingLigature Nerd Font Mono",
   "ui_font_size": 17,
-  "buffer_font_family": "D2Coding",
+  "buffer_font_family": "D2CodingLigature Nerd Font Mono",
   "buffer_font_size": 17,
   "show_whitespaces": "boundary",
   "theme": {
@@ -86,4 +86,7 @@
     "dark": "Catppuccin Mocha",
   },
   "icon_theme": "Catppuccin Mocha",
+  "terminal": {
+    "font_family": "D2CodingLigature Nerd Font Mono"
+  }
 }
