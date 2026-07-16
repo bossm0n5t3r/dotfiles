@@ -26,6 +26,8 @@ brew "fnm"
 brew "fzf"
 # Distributed revision control system
 brew "git"
+# Audit git repos for secrets
+brew "gitleaks"
 # Statically typed language for the Erlang VM
 brew "gleam"
 # GNU Privacy Guard (OpenPGP)
@@ -128,8 +130,6 @@ cask "bitwarden"
 cask "bruno"
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
-# OpenAI's coding agent that runs in your terminal
-cask "codex"
 # Menu bar usage monitor for Codex and Claude
 cask "codexbar"
 # Voice and text chat software
