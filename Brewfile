@@ -139,7 +139,6 @@ cask "drawio"
 # Web browser
 cask "firefox"
 cask "font-d2coding"
-cask "font-d2coding-nerd-font"
 # GIT client
 cask "fork"
 # Terminal emulator that uses platform-native UI and GPU acceleration
@@ -158,12 +157,12 @@ cask "keepingyouawake"
 cask "keka"
 # Official Kotlin Language Server
 cask "kotlin-lsp"
-# Privacy-first, open-source platform for knowledge sharing and management
-cask "logseq"
 # Orchestrates virtual Ubuntu instances
 cask "multipass"
 # App to write, plan, collaborate, and get organised
 cask "notion"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Verify system files structure, run miscellaneous maintenance and more
 cask "onyx"
 # VPN client focusing on security
