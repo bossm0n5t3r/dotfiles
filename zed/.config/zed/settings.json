@@ -69,6 +69,25 @@
       "language_servers": ["ruff", "!basedpyright"],
       "formatter": "language_server",
     },
+    "TypeScript": {
+      "formatter": "prettier",
+      "format_on_save": "on",
+    },
+    "JavaScript": {
+      "formatter": "prettier",
+      "format_on_save": "on",
+    },
+    "HTML": {
+      "formatter": "prettier",
+      "format_on_save": "on",
+    },
+    "CSS": {
+      "formatter": "prettier",
+      "format_on_save": "on",
+    },
+  },
+  "prettier": {
+    "allowed": true,
   },
   "telemetry": {
     "diagnostics": false,
@@ -87,6 +106,6 @@
   },
   "icon_theme": "Catppuccin Mocha",
   "terminal": {
-    "font_family": "D2Coding"
-  }
+    "font_family": "D2Coding",
+  },
 }
