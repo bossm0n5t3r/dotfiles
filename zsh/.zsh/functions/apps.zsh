@@ -12,7 +12,20 @@ reset-launchpad() {
 }
 
 sdk-upgrade-all() {
-    sdk selfupdate && sdk upgrade
+    local reset='\e[0m'
+    local bold_blue='\e[1;34m'
+
+    echo
+    printf '%b\n' "${bold_blue}Running: sdk selfupdate${reset}"
+    sdk selfupdate
+
+    echo
+    printf '%b\n' "${bold_blue}Running: sdk upgrade${reset}"
+    sdk upgrade
+
+    echo
+    printf '%b\n' "${bold_blue}Running: sdk-cleanup${reset}"
+    sdk-cleanup
 }
 
 sdk-cleanup() {
