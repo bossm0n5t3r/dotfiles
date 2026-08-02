@@ -10,10 +10,6 @@ brew "docker"
 brew "docker-buildx"
 # Isolated development environments using Docker
 brew "docker-compose"
-# C/C++ and Java libraries for Unicode and globalization
-brew "icu4c@78"
-# Git for Data
-brew "dolt"
 # Programming language for highly scalable real-time systems
 brew "erlang"
 # Functional metaprogramming aware language built on Erlang VM
@@ -26,6 +22,8 @@ brew "fnm"
 brew "fzf"
 # Distributed revision control system
 brew "git"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
 # Audit git repos for secrets
 brew "gitleaks"
 # Statically typed language for the Erlang VM
@@ -44,6 +42,8 @@ brew "htop"
 brew "httpie"
 # Configurable static site generator
 brew "hugo"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c@78"
 # JQ clone focussed on correctness, speed, and simplicity
 brew "jaq"
 # Environment diagnostics for Kotlin Multiplatform Mobile app development
