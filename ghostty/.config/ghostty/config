@@ -24,6 +24,12 @@ window-padding-balance = true
 macos-option-as-alt = true
 
 # ----------------------------
+# Working Directory
+# ----------------------------
+working-directory = home
+window-inherit-working-directory = false
+
+# ----------------------------
 # Cursor & Mouse
 # ----------------------------
 cursor-style = block
