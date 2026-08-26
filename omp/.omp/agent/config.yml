@@ -1,6 +1,6 @@
 symbolPreset: ascii
 colorBlindMode: true
-setupVersion: 1
+setupVersion: 2
 theme:
   dark: dark-catppuccin
   light: light-catppuccin
@@ -21,3 +21,5 @@ dev:
   autoqaConsent: denied
 tools:
   approvalMode: always-ask
+composer:
+  shape: box
