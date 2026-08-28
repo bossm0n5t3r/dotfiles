@@ -37,7 +37,7 @@ mit-license() {
         else
           printf '%s\n' "$line" || return 1
         fi
-      done <"$download_file" >"$rendered_file"
+      done <"$download_file" >|"$rendered_file"
 
       output_file=$rendered_file
     fi
