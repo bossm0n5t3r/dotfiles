@@ -117,10 +117,10 @@ alias lg='lazygit'
 alias lzd='lazydocker'
 
 ###############################################
-# Functions (~/.zsh/functions/*.zsh)
+# Functions (~/.zsh/functions/*.{zsh,sh})
 ###############################################
 
-for f in $HOME/.zsh/functions/*.zsh; do
+for f in $HOME/.zsh/functions/*.(zsh|sh)(N); do
     [[ -r "$f" ]] && source "$f"
 done
 
