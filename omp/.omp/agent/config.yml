@@ -6,10 +6,10 @@ theme:
   light: light-catppuccin
 modelRoles:
   default: opencode-go/kimi-k2.7-code:medium
-  smol: opencode-go/qwen3.7-plus:low
-  tiny: opencode-go/qwen3.7-plus:low
+  smol: opencode-go/qwen3.8-flash:low
+  tiny: opencode-go/qwen3.8-flash:low
   task: opencode-go/kimi-k2.7-code:high
-  commit: opencode-go/qwen3.7-plus:medium
+  commit: opencode-go/qwen3.8-flash:medium
   plan: openai-codex/gpt-5.6-terra:high
   slow: openai-codex/gpt-5.6-sol:xhigh
   advisor: openai-codex/gpt-5.6-terra:xhigh
