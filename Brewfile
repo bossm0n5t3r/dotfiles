@@ -128,8 +128,8 @@ cask "balenaetcher"
 cask "bitwarden"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
-# OpenAI's official ChatGPT desktop app
-cask "chatgpt"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
 # Menu bar usage monitor for Codex and Claude
 cask "codexbar"
 # Voice and text chat software
@@ -139,8 +139,8 @@ cask "drawio"
 # Web browser
 cask "firefox"
 cask "font-d2coding"
-# GIT client
-cask "fork"
+# Git client
+cask "fork@dev"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Web browser
@@ -157,12 +157,12 @@ cask "keepingyouawake"
 cask "keka"
 # Official Kotlin Language Server
 cask "kotlin-lsp"
+# Privacy-first, open-source platform for knowledge sharing and management
+cask "logseq-og"
 # Orchestrates virtual Ubuntu instances
 cask "multipass"
 # App to write, plan, collaborate, and get organised
 cask "notion"
-# Knowledge base that works on top of a local folder of plain text Markdown files
-cask "obsidian"
 # Verify system files structure, run miscellaneous maintenance and more
 cask "onyx"
 # VPN client focusing on security
@@ -175,6 +175,8 @@ cask "redis-insight"
 cask "slack"
 # Music streaming service
 cask "spotify"
+# Mesh VPN based on WireGuard
+cask "tailscale-app"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # System tray app for automatic time tracking
