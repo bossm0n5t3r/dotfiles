@@ -9,7 +9,7 @@ It is optimized for macOS and uses Homebrew plus GNU Stow for package and symlin
 
 ## 🛠 Tech Stack
 
-- **Shell:** Zsh with [Zimfw](https://zimfw.sh/) and [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- **Shell:** Zsh with [Zimfw](https://zimfw.sh/) and [Pure](https://github.com/sindresorhus/pure)
 - **Editors:** Neovim, Vim, Helix, VS Code
 - **Terminal Multiplexer:** Tmux with [TPM](https://github.com/tmux-plugins/tpm)
 - **Package Manager:** Homebrew (managed via `Brewfile`) and GNU Stow
@@ -169,7 +169,7 @@ The script validates `MODE`, `PRUNE_VOLUMES`, and `DRY_RUN` values and exits wit
 
 ```text
 .
-├── zsh/                     # ~/.zshrc, ~/.zsh, Zimfw and Powerlevel10k config
+├── zsh/                     # ~/.zshrc, ~/.zsh, Zimfw and Pure prompt
 ├── tmux/                    # ~/.tmux.conf
 ├── vim/                     # ~/.vim/vimrc
 ├── nvim/                    # ~/.config/nvim

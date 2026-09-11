@@ -41,6 +41,9 @@ if [[ -f "${ZIMFW_SCRIPT}" ]]; then
     fi
 fi
 
+# zsh-autosuggestions (Zim module option)
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
 # Initialize Zim modules
 [[ -f ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
@@ -62,9 +65,6 @@ for key in 'j'; do
     bindkey -M vicmd "${key}" history-substring-search-down
 done
 unset key
-
-# zsh-autosuggestions (Zim module option)
-ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 ###############################################
 # PATH & Languages
@@ -134,7 +134,7 @@ fi
 
 # fnm (Node Version Manager)
 if command -v fnm 1>/dev/null 2>&1; then
-    if (($+functions[zsh - defer])); then
+    if (($+functions[zsh-defer])); then
         zsh-defer -c 'eval "$(fnm env --use-on-cd)"'
     else
         eval "$(fnm env --use-on-cd)"
@@ -157,6 +157,16 @@ export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 
 # Secret keys
 [ -f "$HOME/.secret_keys" ] && source "$HOME/.secret_keys"
+
+###############################################
+# Pure (Prompt)
+###############################################
+
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+
+autoload -U promptinit
+promptinit
+prompt pure
 
 ###############################################
 # Kubernetes (kubectl completion)

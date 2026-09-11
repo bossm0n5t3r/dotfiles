@@ -76,6 +76,8 @@ brew "pkgconf"
 brew "pnpm"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
+# Pretty, minimal and fast ZSH prompt
+brew "pure"
 # Python version management
 brew "pyenv"
 # Generic machine emulator and virtualizer

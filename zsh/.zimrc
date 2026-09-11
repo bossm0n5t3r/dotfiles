@@ -23,7 +23,7 @@ zmodule utility
 # Prompt
 #
 
-# Powerlevel10k is loaded directly from ~/.zshrc.
+# Pure is loaded directly from ~/.zshrc.
 
 #
 # Completion
@@ -51,5 +51,5 @@ zmodule zsh-users/zsh-autosuggestions
 
 ### Custom Modules ###
 
-zmodule romkatv/zsh-defer -d
+zmodule romkatv/zsh-defer
 zmodule mroth/evalcache
