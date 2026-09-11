@@ -74,8 +74,6 @@ brew "pi-coding-agent"
 brew "pkgconf"
 # Fast, disk space efficient package manager
 brew "pnpm"
-# Theme for zsh
-brew "powerlevel10k"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
 # Python version management

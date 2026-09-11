@@ -8,11 +8,6 @@ if [[ -n "$INTELLIJ_ENVIRONMENT_READER" ]]; then
     return
 fi
 
-# Powerlevel10k instant prompt. Keep this close to the top of ~/.zshrc.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ###############################################
 # Basic Zsh Configuration
 ###############################################
@@ -162,13 +157,6 @@ export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
 
 # Secret keys
 [ -f "$HOME/.secret_keys" ] && source "$HOME/.secret_keys"
-
-###############################################
-# Powerlevel10k (Prompt)
-###############################################
-
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-[[ -f "$HOME/.p10k.zsh" ]] && source "$HOME/.p10k.zsh"
 
 ###############################################
 # Kubernetes (kubectl completion)
