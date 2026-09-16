@@ -20,6 +20,37 @@ statusLine:
 dev:
   autoqaConsent: denied
 tools:
-  approvalMode: always-ask
+  approvalMode: write
+  approval:
+    # General safety
+    bash: prompt
+    delete: deny
+    eval: deny
+    read: allow
+    mcp__filesystem_delete: deny
+
+    # omp commit — inspection
+    git_overview: allow
+    git_file_diff: allow
+    git_hunk: allow
+
+    # omp commit — structured proposals
+    propose_commit: allow
+    split_commit: allow
+    propose_changelog: allow
+bash:
+  patterns:
+    - match: "git status*"
+      approval: allow
+    - match: "git diff*"
+      approval: allow
+    - match: "git log*"
+      approval: allow
+    - match: "git show*"
+      approval: allow
+    - match: "curl *"
+      approval: prompt
+    - match: "rm -rf *"
+      approval: deny
 composer:
   shape: box
