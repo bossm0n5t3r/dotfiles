@@ -13,7 +13,7 @@ omp/.omp/agent/*
 !omp/.omp/agent/extensions/
 
 omp/.omp/agent/extensions/*
-!omp/.omp/agent/extensions/no-delete.ts
+!omp/.omp/agent/extensions/confirm-delete.ts
 
 # Editor type support for omp extensions
 node_modules/

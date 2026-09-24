@@ -22,12 +22,8 @@ dev:
 tools:
   approvalMode: yolo
   approval:
-    delete: deny
+    delete: prompt
     eval: deny
-    mcp__filesystem_delete: deny
-bash:
-  patterns:
-    - match: "rm -rf *"
-      approval: deny
+    mcp__filesystem_delete: prompt
 composer:
   shape: box
