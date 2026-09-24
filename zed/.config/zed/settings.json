@@ -8,39 +8,39 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "title_bar": {
-    "show_branch_status_icon": true,
+    "show_branch_status_icon": true
   },
   "cli_default_open_behavior": "new_window",
   "project_panel": {
-    "dock": "left",
+    "dock": "left"
   },
   "outline_panel": {
-    "dock": "left",
+    "dock": "left"
   },
   "collaboration_panel": {
-    "dock": "left",
+    "dock": "left"
   },
   "git_panel": {
     "fallback_branch_name": "master",
     "dock": "left",
-    "tree_view": true,
+    "tree_view": true
   },
   "agent_servers": {
     "codex-acp": {
-      "type": "registry",
-    },
+      "type": "registry"
+    }
   },
   "agent": {
     "dock": "right",
     "default_model": {
       "provider": "openai",
       "model": "gpt-5.3-codex",
-      "enable_thinking": true,
+      "enable_thinking": true
     },
     "commit_message_model": {
       "provider": "openai",
-      "model": "gpt-5.3-codex",
-    },
+      "model": "gpt-5.3-codex"
+    }
   },
   "disable_ai": false,
   "lsp": {
@@ -48,50 +48,50 @@
       "settings": {
         "compiler": {
           "jvm": {
-            "target": "25",
-          },
-        },
-      },
-    },
+            "target": "25"
+          }
+        }
+      }
+    }
   },
   "languages": {
     "Kotlin": {
-      "language_servers": ["kotlin-lsp"],
+      "language_servers": ["kotlin-lsp"]
     },
     "Python": {
       "code_actions_on_format": {
         // Organize imports
         "source.organizeImports.ruff": true,
         // Fix all auto-fixable lint violations
-        "source.fixAll.ruff": true,
+        "source.fixAll.ruff": true
       },
       "format_on_save": "on",
       "language_servers": ["ruff", "!basedpyright"],
-      "formatter": "language_server",
+      "formatter": "language_server"
     },
     "TypeScript": {
       "formatter": "prettier",
-      "format_on_save": "on",
+      "format_on_save": "on"
     },
     "JavaScript": {
       "formatter": "prettier",
-      "format_on_save": "on",
+      "format_on_save": "on"
     },
     "HTML": {
       "formatter": "prettier",
-      "format_on_save": "on",
+      "format_on_save": "on"
     },
     "CSS": {
       "formatter": "prettier",
-      "format_on_save": "on",
-    },
+      "format_on_save": "on"
+    }
   },
   "prettier": {
-    "allowed": true,
+    "allowed": true
   },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false,
+    "metrics": false
   },
   "base_keymap": "JetBrains",
   "ui_font_family": "D2Coding",
@@ -102,10 +102,10 @@
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Latte",
+    "dark": "Catppuccin Latte"
   },
   "icon_theme": "Catppuccin Latte",
   "terminal": {
-    "font_family": "D2Coding",
-  },
+    "font_family": "D2Coding"
+  }
 }
