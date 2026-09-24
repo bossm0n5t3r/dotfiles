@@ -7,5 +7,13 @@ pi/.pi/agent/trust.json
 # OMP: ignore local state and keep only portable config
 omp/.omp/*
 !omp/.omp/agent/
+
 omp/.omp/agent/*
 !omp/.omp/agent/config.yml
+!omp/.omp/agent/extensions/
+
+omp/.omp/agent/extensions/*
+!omp/.omp/agent/extensions/no-delete.ts
+
+# Editor type support for omp extensions
+node_modules/
