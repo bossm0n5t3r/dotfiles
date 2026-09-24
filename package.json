@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@oh-my-pi/pi-coding-agent": "^18.3.0",
+    "prettier": "^3.9.9"
+  }
+}
