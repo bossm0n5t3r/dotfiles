@@ -20,6 +20,8 @@ brew "flyctl"
 brew "fnm"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
+brew "gh"
 # Distributed revision control system
 brew "git"
 # Quickly rewrite git repository history
@@ -130,8 +132,6 @@ cask "bitwarden"
 cask "bruno"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
-# Menu bar usage monitor for Codex and Claude
-cask "codexbar"
 # Voice and text chat software
 cask "discord"
 # Online diagram software
