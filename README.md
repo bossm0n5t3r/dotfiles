@@ -196,10 +196,8 @@ Key variables managed in `zsh/.zshrc`:
 
 **Note: Sensitive keys should be placed in `~/.secret_keys`, which is automatically sourced.**
 
-Zsh loads rbenv completions from `~/.rbenv/completions` before Zim initializes completion.
-When rbenv is available, it also runs `rbenv init --no-rehash - zsh` to enable shell integration
-and prioritize Ruby shims over the Homebrew Ruby paths. Open a new shell or run `source ~/.zshrc`
-after applying this configuration.
+Zsh loads rbenv completions from `~/.rbenv/completions` before Zim initializes completion. Open a new shell or run
+`source ~/.zshrc` after applying this configuration.
 
 ## ⚖️ License
 
