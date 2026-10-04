@@ -127,7 +127,7 @@ for f in $HOME/.zsh/functions/*.(zsh|sh)(N); do
 done
 
 ###############################################
-# Tools (pyenv, fnm, fzf, Colima, secrets)
+# Tools (pyenv, rbenv, fnm, fzf, Colima, secrets)
 ###############################################
 
 # pyenv initialization
@@ -139,6 +139,11 @@ if (( $+commands[pyenv] )); then
     else
         eval "$(pyenv init --no-rehash - zsh)"
     fi
+fi
+
+# rbenv initialization
+if (( $+commands[rbenv] )); then
+    eval "$(rbenv init --no-rehash - zsh)"
 fi
 
 # fnm (Node Version Manager)
