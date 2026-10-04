@@ -84,8 +84,6 @@ brew "pure"
 brew "pyenv"
 # Generic machine emulator and virtualizer
 brew "qemu"
-# Ruby version manager
-brew "rbenv"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
 # Extremely fast Python linter, written in Rust

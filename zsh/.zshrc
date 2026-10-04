@@ -8,12 +8,9 @@ if [[ -n "$INTELLIJ_ENVIRONMENT_READER" ]]; then
     return
 fi
 
-# Keep path arrays unique and register completions before Zim runs compinit.
+# Keep path arrays unique and register Homebrew completions before Zim runs compinit.
 typeset -U path PATH fpath
 fpath+=(/opt/homebrew/share/zsh/site-functions)
-
-# rbenv installed in ~/.rbenv
-fpath=("$HOME/.rbenv/completions" $fpath)
 
 ###############################################
 # Basic Zsh Configuration
