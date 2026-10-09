@@ -124,6 +124,30 @@ The `zsh/.zsh/functions/` directory contains several utility functions:
   - `reset-launchpad`: Resets and restarts the macOS Launchpad.
   - `sdk-upgrade-all`: Updates SDKMAN and its installed candidates.
 
+- **Python:**
+  - `pyenv-global [version]`: Installs Python if needed, then sets the pyenv global version.
+    With no argument, selects the latest stable Python 3 known to the local pyenv installation.
+    A prefix such as `3.13` selects that series' latest patch; `3.13.5` selects that exact version.
+    Skips confirmation and changes if the target is already installed and is the only global version.
+    Multiple global versions or a missing installation still require confirmation.
+    Shows the resolved version and asks for confirmation before installing or changing global.
+    Only `y` or `yes` (case-insensitive) proceeds; Enter, other input, or EOF cancels.
+    Resolution or installation failures leave the global setting unchanged.
+    Update pyenv first if its available-version list is outdated.
+    Project `.python-version` files and `PYENV_VERSION` still override the global setting.
+
+```sh
+pyenv-global
+pyenv-global 3.13
+pyenv-global 3.13.5
+```
+
+Open a new Zsh session after applying the dotfiles, or load the helper immediately:
+
+```sh
+source ~/code/dotfiles/zsh/.zsh/functions/pyenv.zsh
+```
+
 ## 🐳 Docker
 
 Docker Compose files are available for local development:
