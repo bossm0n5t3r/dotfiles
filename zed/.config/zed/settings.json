@@ -44,12 +44,10 @@
   },
   "disable_ai": false,
   "lsp": {
-    "kotlin-language-server": {
-      "settings": {
-        "compiler": {
-          "jvm": {
-            "target": "25"
-          }
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy"
         }
       }
     }
@@ -66,10 +64,18 @@
         "source.fixAll.ruff": true
       },
       "format_on_save": "on",
-      "language_servers": ["ruff", "!basedpyright"],
-      "formatter": "language_server"
+      "language_servers": ["basedpyright", "ruff"],
+      "formatter": {
+        "language_server": {
+          "name": "ruff"
+        }
+      }
     },
     "TypeScript": {
+      "formatter": "prettier",
+      "format_on_save": "on"
+    },
+    "TSX": {
       "formatter": "prettier",
       "format_on_save": "on"
     },
@@ -84,6 +90,16 @@
     "CSS": {
       "formatter": "prettier",
       "format_on_save": "on"
+    },
+    "Rust": {
+      "formatter": "language_server",
+      "format_on_save": "on",
+      "inlay_hints": {
+        "enabled": true,
+        "show_type_hints": true,
+        "show_parameter_hints": true,
+        "show_other_hints": true
+      }
     }
   },
   "prettier": {

@@ -108,6 +108,15 @@ vim +PlugInstall +qall
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
+#### Zed
+
+The `zed` Stow package links `zed/.config/zed/settings.json` to `~/.config/zed/settings.json`.
+Existing links pick up edits without re-running Stow.
+
+- Kotlin uses `kotlin-lsp`; configure JVM/toolchain targets in the project rather than in settings for the inactive `kotlin-language-server`.
+- Python uses basedpyright for type analysis and Ruff for formatting, import organization, and auto-fixable lint corrections on save.
+- TypeScript and TSX both use Prettier on save; Zed treats them as separate language settings.
+
 ## 📜 Custom Scripts & Functions
 
 The `zsh/.zsh/functions/` directory contains several utility functions:
