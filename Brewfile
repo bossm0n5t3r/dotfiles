@@ -1,7 +1,6 @@
 tap "can1357/tap"
 tap "homebrew/cask"
 tap "homebrew/core"
-tap "oven-sh/bun"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima", restart_service: :changed
 # Pack, ship and run any application as a lightweight container
@@ -118,8 +117,6 @@ brew "zimfw"
 brew "zsh-syntax-highlighting"
 # Coding agent with the IDE wired in
 brew "can1357/tap/omp", trusted: true
-# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
-brew "oven-sh/bun/bun", trusted: true
 # Memory training application
 cask "anki"
 # Application uninstaller
@@ -252,5 +249,6 @@ vscode "wakatime.vscode-wakatime"
 vscode "yzhang.markdown-all-in-one"
 go "golang.org/x/tools/gopls"
 go "honnef.co/go/tools/cmd/staticcheck"
+cargo "rustlings"
 uv "acw"
 uv "trafilatura"
