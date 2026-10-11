@@ -72,6 +72,16 @@ Alternatively, you can follow the manual steps below.
 brew bundle --file=./Brewfile
 ```
 
+Repository JavaScript tooling uses pnpm 12.11.2, pinned in `package.json`.
+Keep `pnpm-lock.yaml` committed; dependency build-script approvals are stored in `pnpm-workspace.yaml`.
+
+```sh
+pnpm install --frozen-lockfile
+pnpm run format:check
+# Apply formatting when needed:
+pnpm run format
+```
+
 #### Apply Configurations with Stow
 
 Each top-level package mirrors the path that should exist under `$HOME`.
