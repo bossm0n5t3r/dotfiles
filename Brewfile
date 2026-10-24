@@ -1,6 +1,8 @@
 tap "can1357/tap"
 tap "homebrew/cask"
 tap "homebrew/core"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c@78"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima", restart_service: :changed
 # Pack, ship and run any application as a lightweight container
@@ -43,8 +45,6 @@ brew "htop"
 brew "httpie"
 # Configurable static site generator
 brew "hugo"
-# C/C++ and Java libraries for Unicode and globalization
-brew "icu4c@78"
 # JQ clone focussed on correctness, speed, and simplicity
 brew "jaq"
 # Environment diagnostics for Kotlin Multiplatform Mobile app development
@@ -65,8 +65,6 @@ brew "minikube"
 brew "mkcert"
 # Create, run, and share large language models (LLMs)
 brew "ollama"
-# AI coding agent, built for the terminal
-brew "opencode"
 # CLI for Postgres with auto-completion and syntax highlighting
 brew "pgcli"
 # AI agent toolkit
@@ -127,8 +125,6 @@ cask "balenaetcher"
 cask "bitwarden"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
-# OpenAI's coding agent that runs in your terminal
-cask "codex"
 # Voice and text chat software
 cask "discord"
 # Online diagram software
