@@ -6,10 +6,10 @@ theme:
   light: light-catppuccin
 modelRoles:
   default: openai-codex/gpt-6.1-sol:medium
-  smol: opencode-go/glm-5.3-flash:low
-  tiny: opencode-go/glm-5.3-flash:low
-  task: opencode-go/kimi-k2.7-code:high
-  commit: opencode-go/glm-5.3-flash:high
+  smol: openai-codex/gpt-6-luna:low
+  tiny: openai-codex/gpt-6-luna:low
+  task: openai-codex/gpt-6-sol:high
+  commit: openai-codex/gpt-6-luna:high
   plan: openai-codex/gpt-6.1-sol:high
   slow: openai-codex/gpt-6.1-sol:xhigh
   advisor: openai-codex/gpt-6.1-sol:high
