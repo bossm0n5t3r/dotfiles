@@ -154,6 +154,7 @@ The `zsh/.zsh/functions/` directory contains several utility functions:
     Resolution or installation failures leave the global setting unchanged.
     Update pyenv first if its available-version list is outdated.
     Project `.python-version` files and `PYENV_VERSION` still override the global setting.
+    Zsh initializes pyenv directly without evalcache, so shell startup does not emit cache-generation notices.
 
 ```sh
 pyenv-global

@@ -52,4 +52,3 @@ zmodule zsh-users/zsh-autosuggestions
 ### Custom Modules ###
 
 zmodule romkatv/zsh-defer
-zmodule mroth/evalcache

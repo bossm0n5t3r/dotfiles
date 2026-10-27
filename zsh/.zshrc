@@ -129,13 +129,7 @@ done
 
 # pyenv initialization
 if (( $+commands[pyenv] )); then
-    if (( $+functions[_evalcache] )); then
-        # Invalidate evalcache on Homebrew upgrades without spawning pyenv --version.
-        _evalcache PYENV_EVALCACHE_VERSION="${commands[pyenv]:A:h:h:t}" \
-            pyenv init --no-rehash - zsh
-    else
-        eval "$(pyenv init --no-rehash - zsh)"
-    fi
+    eval "$(pyenv init --no-rehash - zsh)"
 fi
 
 # fnm (Node Version Manager)
