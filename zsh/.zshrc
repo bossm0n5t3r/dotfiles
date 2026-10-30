@@ -51,6 +51,31 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 # Initialize Zim modules
 [[ -f ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
+###############################################
+# Syntax Highlighting (Colorblind-Friendly)
+###############################################
+
+# Use color and text attributes instead of red/green alone.
+typeset -A ZSH_HIGHLIGHT_STYLES
+
+# Commands, precommand modifiers, and command-style fallback: blue
+for style in \
+    command \
+    builtin \
+    function \
+    alias \
+    suffix-alias \
+    global-alias \
+    hashed-command \
+    precommand \
+    arg0; do
+    ZSH_HIGHLIGHT_STYLES[$style]='fg=#0000FF'
+done
+unset style
+
+# Unknown commands: dark orange for Latte contrast + bold + underline
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#A64B00,bold,underline'
+
 # Keep Zim's environment defaults, but do not auto-cd into directories
 unsetopt AUTO_CD
 

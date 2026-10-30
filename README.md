@@ -98,6 +98,12 @@ stow --simulate --verbose --dir=. --target="$HOME" --no-folding \
     zsh tmux vim nvim helix ghostty alacritty zed vscode
 ```
 
+Zsh syntax highlighting uses blue (`#0000FF`) for recognized commands,
+precommand modifiers such as `noglob`, and the `arg0` command-style fallback.
+Unknown commands/errors use bold, underlined dark orange (`#A64B00`) for contrast
+against the Catppuccin Latte background, avoiding red/green-only distinctions. Open a new shell
+after updating `zsh/.zshrc` to apply these styles.
+
 To remove a package:
 
 ```sh
@@ -123,8 +129,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 The `zed` Stow package links `zed/.config/zed/settings.json` to `~/.config/zed/settings.json`.
 Existing links pick up edits without re-running Stow.
 
-- Kotlin uses `kotlin-lsp`; configure JVM/toolchain targets in the project rather than in settings for the inactive `kotlin-language-server`.
-- Python uses basedpyright for type analysis and Ruff for formatting, import organization, and auto-fixable lint corrections on save.
+- Kotlin uses `kotlin-lsp`; configure JVM/toolchain targets in the project rather than in settings for the inactive
+  `kotlin-language-server`.
+- Python uses basedpyright for type analysis and Ruff for formatting, import organization, and auto-fixable lint
+  corrections on save.
 - TypeScript and TSX both use Prettier on save; Zed treats them as separate language settings.
 
 ## 📜 Custom Scripts & Functions
