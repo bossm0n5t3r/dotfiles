@@ -55,10 +55,19 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 # Syntax Highlighting (Colorblind-Friendly)
 ###############################################
 
+# Theme-specific syntax highlighting palettes
+typeset -A ZSH_SYNTAX_PALETTE=(
+    'latte.command' '#1854CC'
+    'latte.error' '#A64B00'
+)
+
+# Select the palette matching the terminal theme; no automatic detection.
+ZSH_SYNTAX_THEME=latte
+
 # Use color and text attributes instead of red/green alone.
 typeset -A ZSH_HIGHLIGHT_STYLES
 
-# Commands, precommand modifiers, and command-style fallback: blue
+# Commands, precommand modifiers, and command-style fallback
 for style in \
     command \
     builtin \
@@ -69,12 +78,12 @@ for style in \
     hashed-command \
     precommand \
     arg0; do
-    ZSH_HIGHLIGHT_STYLES[$style]='fg=#0000FF'
+    ZSH_HIGHLIGHT_STYLES[$style]="fg=${ZSH_SYNTAX_PALETTE[${ZSH_SYNTAX_THEME}.command]}"
 done
 unset style
 
-# Unknown commands: dark orange for Latte contrast + bold + underline
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#A64B00,bold,underline'
+# Keep non-color error cues across themes.
+ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=${ZSH_SYNTAX_PALETTE[${ZSH_SYNTAX_THEME}.error]},bold,underline"
 
 # Keep Zim's environment defaults, but do not auto-cd into directories
 unsetopt AUTO_CD

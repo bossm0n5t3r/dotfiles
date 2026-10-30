@@ -98,11 +98,7 @@ stow --simulate --verbose --dir=. --target="$HOME" --no-folding \
     zsh tmux vim nvim helix ghostty alacritty zed vscode
 ```
 
-Zsh syntax highlighting uses blue (`#0000FF`) for recognized commands,
-precommand modifiers such as `noglob`, and the `arg0` command-style fallback.
-Unknown commands/errors use bold, underlined dark orange (`#A64B00`) for contrast
-against the Catppuccin Latte background, avoiding red/green-only distinctions. Open a new shell
-after updating `zsh/.zshrc` to apply these styles.
+Zsh syntax highlighting uses colorblind-friendly styling.
 
 To remove a package:
 
