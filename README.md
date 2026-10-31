@@ -99,6 +99,7 @@ stow --simulate --verbose --dir=. --target="$HOME" --no-folding \
 ```
 
 Zsh syntax highlighting uses colorblind-friendly styling.
+Set `ZSH_SYNTAX_THEME` in `zsh/.zshrc` to select a palette, or `none` to use the plugin's default styles.
 
 To remove a package:
 

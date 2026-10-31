@@ -59,31 +59,35 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 typeset -A ZSH_SYNTAX_PALETTE=(
     'latte.command' '#1854CC'
     'latte.error' '#A64B00'
+    'iced-americano.command' '#1D62ED'
+    'iced-americano.error' '#DF8E1D'
 )
 
-# Select the palette matching the terminal theme; no automatic detection.
-ZSH_SYNTAX_THEME=latte
+# Select a palette or none to keep plugin defaults.
+ZSH_SYNTAX_THEME=iced-americano
 
-# Use color and text attributes instead of red/green alone.
-typeset -A ZSH_HIGHLIGHT_STYLES
+if [[ $ZSH_SYNTAX_THEME != none ]]; then
+    # Use color and text attributes instead of red/green alone.
+    typeset -A ZSH_HIGHLIGHT_STYLES
 
-# Commands, precommand modifiers, and command-style fallback
-for style in \
-    command \
-    builtin \
-    function \
-    alias \
-    suffix-alias \
-    global-alias \
-    hashed-command \
-    precommand \
-    arg0; do
-    ZSH_HIGHLIGHT_STYLES[$style]="fg=${ZSH_SYNTAX_PALETTE[${ZSH_SYNTAX_THEME}.command]}"
-done
-unset style
+    # Commands, precommand modifiers, and command-style fallback
+    for style in \
+        command \
+        builtin \
+        function \
+        alias \
+        suffix-alias \
+        global-alias \
+        hashed-command \
+        precommand \
+        arg0; do
+        ZSH_HIGHLIGHT_STYLES[$style]="fg=${ZSH_SYNTAX_PALETTE[${ZSH_SYNTAX_THEME}.command]}"
+    done
+    unset style
 
-# Keep non-color error cues across themes.
-ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=${ZSH_SYNTAX_PALETTE[${ZSH_SYNTAX_THEME}.error]},bold,underline"
+    # Keep non-color error cues across themes.
+    ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=${ZSH_SYNTAX_PALETTE[${ZSH_SYNTAX_THEME}.error]},bold,underline"
+fi
 
 # Keep Zim's environment defaults, but do not auto-cd into directories
 unsetopt AUTO_CD
