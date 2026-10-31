@@ -77,8 +77,6 @@ brew "pnpm"
 brew "pre-commit"
 # Pretty, minimal and fast ZSH prompt
 brew "pure"
-# Python version management
-brew "pyenv"
 # Generic machine emulator and virtualizer
 brew "qemu"
 # Powerful, clean, object-oriented scripting language

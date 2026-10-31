@@ -68,11 +68,6 @@ if command -v jenv 1>/dev/null 2>&1; then
     eval "$(jenv init -)"
 fi
 
-# pyenv settings
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-fi
-
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme

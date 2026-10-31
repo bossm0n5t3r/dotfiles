@@ -158,13 +158,8 @@ for f in $HOME/.zsh/functions/*.(zsh|sh)(N); do
 done
 
 ###############################################
-# Tools (pyenv, fnm, fzf, Colima, secrets)
+# Tools (fnm, fzf, Colima, secrets)
 ###############################################
-
-# pyenv initialization
-if (( $+commands[pyenv] )); then
-    eval "$(pyenv init --no-rehash - zsh)"
-fi
 
 # fnm (Node Version Manager)
 if command -v fnm 1>/dev/null 2>&1; then
