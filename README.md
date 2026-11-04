@@ -101,6 +101,17 @@ stow --simulate --verbose --dir=. --target="$HOME" --no-folding \
 Zsh syntax highlighting uses colorblind-friendly styling.
 Set `ZSH_SYNTAX_THEME` in `zsh/.zshrc` to select a palette, or `none` to use the plugin's default styles.
 
+To link a package over files that already exist under `$HOME` without creating `.bak` backups, use `stow-adopt.sh`.
+It runs `stow --adopt`, which moves existing files into the repository and then links them.
+Commit the target packages first; the script refuses to run on packages with uncommitted changes.
+
+```sh
+./stow-adopt.sh --dry-run claude
+./stow-adopt.sh claude
+# If the adopted files differ, keep the repository version:
+git checkout -- claude
+```
+
 To remove a package:
 
 ```sh
