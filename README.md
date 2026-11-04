@@ -88,14 +88,14 @@ Each top-level package mirrors the path that should exist under `$HOME`.
 
 ```sh
 stow --dir=. --target="$HOME" --no-folding \
-    zsh tmux vim nvim helix ghostty alacritty zed vscode
+    zsh tmux vim nvim helix ghostty alacritty zed vscode git claude
 ```
 
 To preview changes without creating links:
 
 ```sh
 stow --simulate --verbose --dir=. --target="$HOME" --no-folding \
-    zsh tmux vim nvim helix ghostty alacritty zed vscode
+    zsh tmux vim nvim helix ghostty alacritty zed vscode git claude
 ```
 
 Zsh syntax highlighting uses colorblind-friendly styling.
@@ -120,6 +120,11 @@ vim +PlugInstall +qall
 # Tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
+
+#### Claude Code
+
+The `claude` Stow package links only `claude/.claude/settings.json` to `~/.claude/settings.json`.
+Session history, caches, plugins, and synced skills under `~/.claude` are machine-local state and are not tracked.
 
 #### Zed
 
@@ -224,6 +229,7 @@ The script validates `MODE`, `PRUNE_VOLUMES`, and `DRY_RUN` values and exits wit
 ├── alacritty/               # ~/.config/alacritty
 ├── zed/                     # ~/.config/zed
 ├── vscode/                  # ~/.vscode
+├── claude/                  # ~/.claude/settings.json (Claude Code)
 ├── Brewfile                 # Homebrew dependencies
 ├── docker-compose.yaml      # Local DB/Cache setup
 ├── LICENSE                  # MIT License

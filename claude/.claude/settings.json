@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "defaultMode": "default"
+  },
+  "feedbackDrafts": "notify",
+  "timeFormat": "24-hour",
+  "theme": "light-daltonized",
+  "switchModelsOnFlag": true
+}

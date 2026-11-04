@@ -151,6 +151,7 @@ STOW_PACKAGES=(
     zed
     vscode
     git
+    claude
 )
 
 AVAILABLE_PACKAGES=()
