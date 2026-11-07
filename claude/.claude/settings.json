@@ -9,5 +9,8 @@
   "feedbackDrafts": "notify",
   "timeFormat": "24-hour",
   "theme": "light-daltonized",
-  "switchModelsOnFlag": true
+  "switchModelsOnFlag": true,
+  "enabledPlugins": {
+    "kotlin-lsp@claude-plugins-official": true
+  }
 }
