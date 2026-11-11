@@ -152,6 +152,9 @@ alias rtw='printf "\e[8;24;80t"'
 alias k='kubectl'
 alias lg='lazygit'
 alias lzd='lazydocker'
+alias cc='claude'
+alias ccc='claude --continue'
+alias ccr='claude --resume'
 
 ###############################################
 # Functions (~/.zsh/functions/*.{zsh,sh})
