@@ -5,14 +5,14 @@ theme:
   dark: dark-catppuccin
   light: light-catppuccin
 modelRoles:
-  default: openai-codex/gpt-6.1-sol:medium
+  default: openai-codex/gpt-6.2-sol:medium
   smol: openai-codex/gpt-6-luna:low
   tiny: openai-codex/gpt-6-luna:low
   task: openai-codex/gpt-6.1-terra:high
-  commit: openai-codex/gpt-6.1-terra:high
-  plan: openai-codex/gpt-6.1-sol:high
-  slow: openai-codex/gpt-6.1-sol:xhigh
-  advisor: openai-codex/gpt-6.1-sol:high
+  commit: openai-codex/gpt-6.1-terra:medium
+  plan: openai-codex/gpt-6.2-sol:high
+  slow: openai-codex/gpt-6.2-sol:xhigh
+  advisor: openai-codex/gpt-6.2-astra:high
   vision: openai-codex/gpt-6.1-terra:medium
 statusLine:
   preset: ascii
