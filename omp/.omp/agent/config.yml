@@ -1,9 +1,8 @@
 symbolPreset: ascii
-colorBlindMode: true
-setupVersion: 2
+setupVersion: 3
 theme:
   dark: dark-catppuccin
-  light: light-catppuccin
+  light: iced-americano
 modelRoles:
   default: openai-codex/gpt-6.2-sol:medium
   smol: openai-codex/gpt-6-luna:low
@@ -27,3 +26,5 @@ tools:
     mcp__filesystem_delete: prompt
 composer:
   shape: box
+update:
+  auto: false
